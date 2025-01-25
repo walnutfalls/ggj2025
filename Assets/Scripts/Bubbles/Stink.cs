@@ -7,37 +7,34 @@ public class Stink : MonoBehaviour {
     public float Stinkiness { get => _stinkiness; set { _stinkiness = value; } }
     public bool IsStinky {
         get {
-            float stinkage = Mathf.InverseLerp(_minStink, _maxStink, Stinkiness);
-            return StinkStartPercentage <= stinkage;
+            float stinkage = Mathf.InverseLerp(_bubble.BubbleStats.MinStink, _bubble.BubbleStats.MaxStink, Stinkiness);
+            return _bubble.BubbleStats.StinkStartPercentage <= stinkage;
         }
     }
-    [Tooltip("Percentage (0.0 to 1.0) between minimum and maximum stink levels that this bubble begins to be stinky at (i.e. if minStink = 0, maxStink = 50, setting this to 0.25 means this bubble will be stinky at 12.5 stink")]
-    [SerializeField, Range(0, 1)] private float _stinkStartPercentage;
-    public float StinkStartPercentage { get => _stinkStartPercentage; set { _stinkStartPercentage = value; } }
+    private Bubble _bubble;
 
-    [Tooltip("Minimum level of stink this bubble can have (builds 1 stink per second).")]
-    [SerializeField] private float _minStink;
-    [Tooltip("Maximum level of stink this bubble can have (builds 1 stink per second).")]
-    [SerializeField] private float _maxStink;
-    [Tooltip("Starting stinkiness of this bubble (builds 1 stink per second).")]
-    [SerializeField] private float _spawnStinkiness;
-
-    private void OnValidate() {
-        if (_minStink > _maxStink) {
-            _minStink = _maxStink;
-        }
+    private void Awake() {
+        _bubble = GetComponent<Bubble>();
     }
 
     private void Start() {
-        Stinkiness = _spawnStinkiness;
+        Stinkiness = _bubble.BubbleStats.SpawnStinkiness;
     }
 
     private void Update() {
         Stinkiness += Time.deltaTime;
 
         if (IsStinky) {
-            Debug.Log("THAT STINKS");
+            // Do stink stuff
         }
+    }
+
+    public void AddStinkiness(float stinkinessAmount) {
+        Stinkiness = Mathf.Min(Stinkiness + stinkinessAmount, _bubble.BubbleStats.MaxStink);
+    }
+
+    public void LowerStinkiness(float stinkinessAmount) {
+        Stinkiness = Mathf.Max(Stinkiness - stinkinessAmount, _bubble.BubbleStats.MinStink);
     }
 
     [ContextMenu("Add Ten Stinkiness")]

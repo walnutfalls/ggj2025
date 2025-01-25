@@ -1,17 +1,16 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Stink), typeof(Happiness), typeof(BubbleWater)), RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Stink), typeof(Happiness), typeof(BubbleWater)), RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class Bubble : MonoBehaviour {
+    [Tooltip("Scriptable that holds the bubble's stats.")]
+    [SerializeField] private BubbleStats _bubbleStats;
+    public BubbleStats BubbleStats { get => _bubbleStats; }
+
     [Tooltip("Prefab used for spawning bubbles when they split.")]
     [SerializeField] private GameObject _bubblePrefab;
-
-    [Tooltip("Amount of time in seconds this bubble takes to split.")]
-    [SerializeField] private float _splitTime;
-    public float SplitTime { get => _splitTime; set { _splitTime = value; } }
     private float _splitCount;
     public float SplitCount { get => _splitCount; set { _splitCount = value; } }
-
 
     [Tooltip("Hat game object worn by this bubble (if any)")]
     [SerializeField] private Hat _wornHat;
@@ -22,11 +21,23 @@ public class Bubble : MonoBehaviour {
     private bool _isJammingToMusic = false;
     public bool IsJammingToMusic { get => _isJammingToMusic; set { _isJammingToMusic = value; } }
 
+    private Transform _target;
+    public Transform Target { get => _target; set { _target = value; } }
+
+
+    private Rigidbody2D _rigidbody;
+
+    private void Awake() {
+        _rigidbody = GetComponent<Rigidbody2D>();
+        Target = GameObject.Find("Test Target").transform; // TODO: Remove this in place for the player's position
+    }
+
     private void Start() {
-        SplitCount = SplitTime;
+        SplitCount = BubbleStats.SplitTime;
     }
 
     private void Update() {
+        MoveTowardsTarget();
         UpdateHatPosition();
         SplitCount -= Time.deltaTime;
         if (SplitCount <= 0) {
@@ -42,16 +53,28 @@ public class Bubble : MonoBehaviour {
         WornHat.transform.position = _hatPivot.position;
     }
 
+    private void MoveTowardsTarget() {
+        if (Target == null) {
+            return;
+        }
+
+        _rigidbody.AddForce((Target.position - transform.position).normalized * BubbleStats.MoveForce * Time.deltaTime);
+
+        if (_rigidbody.linearVelocity.magnitude > BubbleStats.MaximumVelocity) {
+            _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * BubbleStats.MaximumVelocity;
+        }
+    }
+
     [ContextMenu("Split")]
     public void Split() {
         Bubble newBubble = Instantiate(_bubblePrefab).GetComponent<Bubble>();
         Hat newHat = new GameObject().AddComponent<Hat>();
         if (WornHat != null) {
-            newHat.SetHatType(WornHat.HatSO);
+            newHat.SetHatType(WornHat.HatSO); // Replace SetHatType parameter with call to bubble director
         }
         newBubble.EquipHat(newHat);
 
-        SplitCount = SplitTime;
+        SplitCount = BubbleStats.SplitTime;
     }
 
     public void EquipHat(Hat hat) {

@@ -9,50 +9,35 @@ public class Happiness : MonoBehaviour {
     private float _currentHappiness;
     public float CurrentHappiness { get => _currentHappiness; set { _currentHappiness = value; } }
 
+    private Bubble _bubble;
+
     public float CurrentHappinessPercentage {
         get {
-            return Mathf.InverseLerp(MinHappiness, MaxHappiness, CurrentHappiness);
+            return Mathf.InverseLerp(_bubble.BubbleStats.MinHappiness, _bubble.BubbleStats.MaxHappiness, CurrentHappiness);
         }
     }
 
-    [Tooltip("Minimum amount of happiness this bubble can have.")]
-    [SerializeField] private float _minHappiness;
-    public float MinHappiness { get => _minHappiness; set { _minHappiness = value; } }
-    [Tooltip("Maximum amount of happiness this bubble can have.")]
-    [SerializeField] private float _maxHappiness;
-    public float MaxHappiness { get => _maxHappiness; set { _maxHappiness = value; } }
-
-
-    [Tooltip("Percentage (between 0.0 and 1.0) between min and max happiness this bubble will start at when spawned.")]
-    [SerializeField, Range(0f, 1f)] private float _spawnHappinessPercentage = 0.5f;
-    public float SpawnHappinessPercentage { get => _spawnHappinessPercentage; set { _spawnHappinessPercentage = value; } }
-
-    [Tooltip("Percentage (between 0.0 and 1.0) between min and max happiness this bubble needs to be at to be considered happy")]
-    [SerializeField, Range(0f, 1f)] private float _happyPercentage = 0.5f;
-    public float HappyPercentage { get => _happyPercentage; set { _happyPercentage = value; } }
-    [Tooltip("Percentage (between 0.0 and 1.0) between min and max happiness this bubble needs to be at to be considered TOO happy")]
-    [SerializeField, Range(0f, 1f)] private float _tooHappyPercentage = 0.75f;
-    public float TooHappyPercentage { get => _tooHappyPercentage; set { _tooHappyPercentage = value; } }
-
-    [Tooltip("Array of sprites that will be displayed depending on the happiness status of this bubble. In order of sad, happy, too happy.")]
-    [SerializeField] private Sprite[] _faceSprites;
-    public Sprite[] FaceSprites { get => _faceSprites; set { _faceSprites = value; } }
-
-    private void OnValidate() {
-        if (_happyPercentage > _tooHappyPercentage) {
-            _happyPercentage = _tooHappyPercentage;
-        }
+    private void Awake() {
+        _bubble = GetComponent<Bubble>();
     }
 
     private void Start() {
-        CurrentHappiness = SpawnHappinessPercentage;
+        CurrentHappiness = _bubble.BubbleStats.SpawnHappinessPercentage;
     }
 
     private void Update() {
-        CurrentHappiness -= Time.deltaTime;
+        LowerHappiness(Time.deltaTime);
 
-        BubbleHappiness = CurrentHappinessPercentage < HappyPercentage ? HappinessStatus.Sad : 
-            (CurrentHappinessPercentage < TooHappyPercentage ? HappinessStatus.Happy : HappinessStatus.TooHappy);
+        BubbleHappiness = CurrentHappinessPercentage < _bubble.BubbleStats.HappyPercentage ? HappinessStatus.Sad : 
+            (CurrentHappinessPercentage < _bubble.BubbleStats.TooHappyPercentage ? HappinessStatus.Happy : HappinessStatus.TooHappy);
+    }
+
+    public void AddHappiness(float happinessAmount) {
+        CurrentHappiness = Mathf.Min(CurrentHappiness + happinessAmount, _bubble.BubbleStats.MaxHappiness);
+    }
+
+    public void LowerHappiness(float happinessAmount) {
+        CurrentHappiness = Mathf.Max(CurrentHappiness - happinessAmount, _bubble.BubbleStats.MinHappiness);
     }
 
     [ContextMenu("Add Ten Happiness")]
@@ -84,13 +69,13 @@ public class Happiness : MonoBehaviour {
         BubbleHappiness = status;
         switch (status) {
             case HappinessStatus.Sad:
-                CurrentHappiness = MinHappiness;
+                CurrentHappiness = _bubble.BubbleStats.MinHappiness;
                 break;
             case HappinessStatus.Happy:
-                CurrentHappiness = Mathf.Lerp(MinHappiness, MaxHappiness, HappyPercentage);
+                CurrentHappiness = Mathf.Lerp(_bubble.BubbleStats.MinHappiness, _bubble.BubbleStats.MaxHappiness, _bubble.BubbleStats.HappyPercentage);
                 break;
             case HappinessStatus.TooHappy:
-                CurrentHappiness = Mathf.Lerp(MinHappiness, MaxHappiness, TooHappyPercentage);
+                CurrentHappiness = Mathf.Lerp(_bubble.BubbleStats.MinHappiness, _bubble.BubbleStats.MaxHappiness, _bubble.BubbleStats.TooHappyPercentage);
                 break;
         }
     }

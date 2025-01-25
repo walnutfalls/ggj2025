@@ -7,7 +7,7 @@ public class HatScriptable : ScriptableObject {
     [SerializeField] private Rarity _hatRarity;
     public Rarity HatRarity { get => _hatRarity; set { _hatRarity = value; } }
     [Tooltip("How much this hat is worth")]
-    [SerializeField] private float _hatValue;
+    [SerializeField, Min(0)] private float _hatValue;
     public float HatValue { get => _hatValue; set { _hatValue = value; } }
 
     [Tooltip("Sprite for this type of hat.")]

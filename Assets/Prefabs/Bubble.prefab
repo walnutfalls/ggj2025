@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261fa20656caef14eb0000febc067d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bubbleStats: {fileID: 11400000, guid: cc693481d0fab4648b72f1a919bcdb87, type: 2}
   _bubblePrefab: {fileID: 516945269212042551}
-  _splitTime: 10
   _wornHat: {fileID: 0}
   _hatPivot: {fileID: 2890490542497642026}
 --- !u!212 &5115814775060578499
@@ -123,10 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fc1db75945f764387560eae79659fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stinkStartPercentage: 0.75
-  _minStink: 0
-  _maxStink: 10
-  _spawnStinkiness: 0
 --- !u!114 &4345088283017129431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,12 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff56353aba97e4846ab4d8957a7eb399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minHappiness: 0
-  _maxHappiness: 100
-  _spawnHappinessPercentage: 0.5
-  _happyPercentage: 0.5
-  _tooHappyPercentage: 0.75
-  _faceSprites: []
 --- !u!114 &4830017849240889854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,9 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3d4f21eb5e2564c9f52b2b30e6a14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wateredSeconds: 5
-  _normalSize: 1
-  _wateredSize: 5
 --- !u!50 &7497604496758883155
 Rigidbody2D:
   serializedVersion: 5
@@ -186,7 +173,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &2957607706558420751
 CircleCollider2D:
   m_ObjectHideFlags: 0

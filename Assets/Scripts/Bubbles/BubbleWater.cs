@@ -8,17 +8,14 @@ public class BubbleWater : MonoBehaviour {
 
     private float _wateredCount;
 
-    [Tooltip("How long in seconds this bubble should stay watered for.")]
-    [SerializeField] private float _wateredSeconds;
-    public float WateredSeconds { get => _wateredSeconds; set { _wateredSeconds = value; } }
+    private Bubble _bubble;
 
-    [Tooltip("Size in meters this shrinks to when not watered (it's \"normal\" size).")]
-    [SerializeField] private float _normalSize;
-    [Tooltip("Size in meters this grows to when watered.")]
-    [SerializeField] private float _wateredSize;
+    private void Awake() {
+        _bubble = GetComponent<Bubble>();
+    }
 
     private void Start() {
-        SetSize(_normalSize);
+        SetSize(_bubble.BubbleStats.NormalSize);
     }
 
     private void Update() {
@@ -36,15 +33,15 @@ public class BubbleWater : MonoBehaviour {
     }
 
     [ContextMenu("Set To Watered")]
-    private void SetToWatered() {
+    public void SetToWatered() {
         IsWatered = true;
-        SetSize(_wateredSize);
-        _wateredCount = WateredSeconds;
+        SetSize(_bubble.BubbleStats.WateredSize);
+        _wateredCount = _bubble.BubbleStats.WateredSeconds;
     }
 
     [ContextMenu("Set To Not Watered")]
-    private void SetToNotWatered() {
+    public void SetToNotWatered() {
         IsWatered = false;
-        SetSize(_normalSize);
+        SetSize(_bubble.BubbleStats.NormalSize);
     }
 }
