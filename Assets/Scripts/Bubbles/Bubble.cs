@@ -29,7 +29,7 @@ public class Bubble : MonoBehaviour {
 
     private void Awake() {
         _rigidbody = GetComponent<Rigidbody2D>();
-        Target = GameObject.Find("Test Target").transform; // TODO: Remove this in place for the player's position
+        Target = FindAnyObjectByType<PlayerController>().transform;
     }
 
     private void Start() {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4830017849240889854}
   - component: {fileID: 7497604496758883155}
   - component: {fileID: 2957607706558420751}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2901263060022888009}
   - component: {fileID: 5891901736956908833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bubble Pop Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2890490542497642026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hat Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
