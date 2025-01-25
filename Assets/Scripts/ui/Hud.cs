@@ -27,7 +27,7 @@ public class Hud : MonoBehaviour
 
     private static string FormatBubbleCount(int number)
     {
-        return number.ToString("#,#");
+        return number.ToString("#,0");
     }
 
     private void Reset()
@@ -47,8 +47,8 @@ public class Hud : MonoBehaviour
         var bubblesAlive = BubbleDirector.Instance.BubblesAliveCount;
         var bubblesPopped = BubbleDirector.Instance.BubblesPoppedCount;
 
-        this.bubblesAliveText.SetText(Hud.FormatBubbleCount(bubblesAlive));
-        this.bubblesPoppedText.SetText(Hud.FormatBubbleCount(bubblesPopped));
+        this.bubblesAliveText.SetText(FormatBubbleCount(bubblesAlive));
+        this.bubblesPoppedText.SetText(FormatBubbleCount(bubblesPopped));
     }
 
     private void UpdateTimeText()
