@@ -10,9 +10,30 @@ public class BroomTool : MonoBehaviour
 
     private IEnumerator _waveCoroutine;
 
+    InputController input;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        input = GetComponent<InputController>();
+    }
+
+    private void Update()
+    {
+        broom.transform.position = transform.position;
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DoWave();
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            StopWave();
+        } else {
+            var dir = input.Movement;
+            broom.transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
+        }
     }
 
     private void DoWave()
