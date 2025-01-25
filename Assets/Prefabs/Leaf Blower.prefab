@@ -101,6 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bubblePool: {fileID: 11400000, guid: 3e9e3c4238e9f8c4988529f168a1b437, type: 2}
-  _range: 1
+  _range: 5
   _angle: 45
   _blowForce: 50
