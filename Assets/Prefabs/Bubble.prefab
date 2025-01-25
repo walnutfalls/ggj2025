@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261fa20656caef14eb0000febc067d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bubbleObjectPool: {fileID: 11400000, guid: 3e9e3c4238e9f8c4988529f168a1b437, type: 2}
   _bubbleStats: {fileID: 11400000, guid: cc693481d0fab4648b72f1a919bcdb87, type: 2}
   _hatPrefab: {fileID: 5086132549407731589, guid: 5737cdb5b3fdd1147a9db89d9f79f448, type: 3}
   _bubblePrefab: {fileID: 516945269212042551}
@@ -161,7 +162,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

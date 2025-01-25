@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 539d2106a6da2c140b00c60e0ea2a815, type: 3}
-  m_Name: Background Music
+  m_Script: {fileID: 11500000, guid: f52ffac4a956a4442b50ef8c104d7dd3, type: 3}
+  m_Name: Bubble Object Pool
   m_EditorClassIdentifier: 
-  _soundName: Background Music
-  _clip: {fileID: 8300000, guid: f1ce4b23f8d43e945ba1aef3a725ea8d, type: 3}
-  _volume: 1
-  _volumeRange: 0
-  _loop: 1
-  _pitch: 1
-  _pitchRange: 0

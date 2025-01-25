@@ -3,6 +3,9 @@ using UnityEngine;
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Stink), typeof(Happiness), typeof(BubbleWater)), RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class Bubble : MonoBehaviour {
+    [Tooltip("Bubble object pool scriptable this object registers/unregisters for on spawn/despawn.")]
+    [SerializeField] private BubbleObjectPool _bubbleObjectPool;
+
     [Tooltip("Scriptable that holds the bubble's stats.")]
     [SerializeField] private BubbleStats _bubbleStats;
     public BubbleStats BubbleStats { get => _bubbleStats; }
@@ -27,12 +30,27 @@ public class Bubble : MonoBehaviour {
     private Transform _target;
     public Transform Target { get => _target; set { _target = value; } }
 
+    private bool _isStunned;
+    public bool IsStunned { get => _isStunned; set { _isStunned = value; } }
 
     private Rigidbody2D _rigidbody;
+    public Rigidbody2D Rigidbody { get => _rigidbody; set => _rigidbody = value; }
+
+    private void OnEnable() {
+        _bubbleObjectPool.AllBubbles.Add(this);
+    }
+
+    private void OnDisable() {
+        _bubbleObjectPool.AllBubbles.Remove(this);
+    }
 
     private void Awake() {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        Target = FindAnyObjectByType<PlayerController>().transform;
+        Rigidbody = GetComponent<Rigidbody2D>();
+
+        PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
+        if (players.Length != 0) {
+            Target = players[0].transform;
+        }
     }
 
     private void Start() {
@@ -40,7 +58,10 @@ public class Bubble : MonoBehaviour {
     }
 
     private void Update() {
-        MoveTowardsTarget();
+        if (!IsStunned) {
+            MoveTowardsTarget();
+        }
+
         UpdateHatPosition();
         SplitCount -= Time.deltaTime;
         if (SplitCount <= 0) {
@@ -61,10 +82,10 @@ public class Bubble : MonoBehaviour {
             return;
         }
 
-        _rigidbody.AddForce((Target.position - transform.position).normalized * BubbleStats.MoveForce * Time.deltaTime);
+        Rigidbody.AddForce((Target.position - transform.position).normalized * BubbleStats.MoveForce * Time.deltaTime);
 
-        if (_rigidbody.linearVelocity.magnitude > BubbleStats.MaximumVelocity) {
-            _rigidbody.linearVelocity = _rigidbody.linearVelocity.normalized * BubbleStats.MaximumVelocity;
+        if (Rigidbody.linearVelocity.magnitude > BubbleStats.MaximumVelocity) {
+            Rigidbody.linearVelocity = Rigidbody.linearVelocity.normalized * BubbleStats.MaximumVelocity;
         }
     }
 
