@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PopcornThrowTool : MonoBehaviour
 {    
-    public float cookTime = 3f;
+    public float cookTime = 1.5f;
     public float foce = 300f;
 
     public GameObject Kernel = null;

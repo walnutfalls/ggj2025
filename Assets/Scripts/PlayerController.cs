@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D body;
     public float runSpeed = 10f;
 
-    public PopcornThrowTool popcornThrowTool;
+    private PopcornThrowTool popcornThrowTool;
 
     private void Awake()
     {
