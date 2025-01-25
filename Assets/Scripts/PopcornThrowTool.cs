@@ -18,7 +18,6 @@ public class PopcornThrowTool : MonoBehaviour
     private IEnumerator cookCoroutine = null;
     private IEnumerator throwCoroutine = null;
 
-    private float elapsed = 0f;
 
     private Vector2 direction;
 
@@ -45,24 +44,11 @@ public class PopcornThrowTool : MonoBehaviour
 
     private IEnumerator Cook()
     {
-        elapsed = 0f;
-
         cookingKernel = Instantiate(Kernel, transform.position, Quaternion.identity);
         cookingKernel.transform.position -= new Vector3(0, 0, 1);
+        cookingKernel.GetComponent<Kernel>().Run(cookTime);
 
-        var origScale = cookingKernel.transform.localScale;
-
-        while (elapsed < cookTime)
-        {
-            var t = elapsed / cookTime;
-
-            cookingKernel.transform.localScale = Vector3.Lerp(origScale * 0.5f, origScale, t);
-
-
-            elapsed += Time.deltaTime;
-            direction = input.Actions.Player.Move.ReadValue<Vector2>();
-            yield return null;
-        }
+        yield return new WaitForSeconds(cookTime);
 
         StartCoroutine(Throw());
         cookCoroutine = null;
@@ -92,7 +78,7 @@ public class PopcornThrowTool : MonoBehaviour
         
         
         cookingKernel.GetComponent<Rigidbody2D>().AddForce(direction * foce);
-        cookingKernel.GetComponent<Kernel>().Run(cookTime - elapsed);
+        
 
         yield return new WaitForSeconds(0.3f);
         throwCoroutine = null;
