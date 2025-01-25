@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa419a161ba22c45bc6381095a1b974, type: 3}
+  m_Name: Bubble Stats
+  m_EditorClassIdentifier: 
+  _splitTime: 10
+  _moveForce: 100
+  _maximumVelocity: 1
+  _stinkStartPercentage: 0.6
+  _minStink: 0
+  _maxStink: 100
+  _spawnStinkiness: 20
+  _minHappiness: 0
+  _maxHappiness: 100
+  _spawnHappinessPercentage: 0.5
+  _happyPercentage: 0.5
+  _tooHappyPercentage: 0.75
+  _wateredSeconds: 15
+  _normalSize: 1
+  _wateredSize: 1.5
+  _faceSprites: []
