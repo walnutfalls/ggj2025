@@ -4,11 +4,6 @@ public class Popcorn : MonoBehaviour
 {
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        GetComponent<AudioSource>().Play();
     }
 }

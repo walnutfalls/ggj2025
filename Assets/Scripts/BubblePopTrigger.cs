@@ -17,6 +17,7 @@ public class BubblePopTrigger : MonoBehaviour
     private void ApplyEffect()
     {
         Debug.Log("Popcorn Eaten!");
+        GetComponent<AudioSource>().Play();
         // ...
     }
 }
