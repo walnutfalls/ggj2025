@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bubbleStats: {fileID: 11400000, guid: cc693481d0fab4648b72f1a919bcdb87, type: 2}
+  _hatPrefab: {fileID: 5086132549407731589, guid: 5737cdb5b3fdd1147a9db89d9f79f448, type: 3}
   _bubblePrefab: {fileID: 516945269212042551}
   _wornHat: {fileID: 0}
   _hatPivot: {fileID: 2890490542497642026}

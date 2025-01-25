@@ -7,6 +7,9 @@ public class Bubble : MonoBehaviour {
     [SerializeField] private BubbleStats _bubbleStats;
     public BubbleStats BubbleStats { get => _bubbleStats; }
 
+    [Tooltip("Hat prefab used for bubble splitting.")]
+    [SerializeField] private GameObject _hatPrefab;
+
     [Tooltip("Prefab used for spawning bubbles when they split.")]
     [SerializeField] private GameObject _bubblePrefab;
     private float _splitCount;
@@ -68,11 +71,12 @@ public class Bubble : MonoBehaviour {
     [ContextMenu("Split")]
     public void Split() {
         Bubble newBubble = Instantiate(_bubblePrefab).GetComponent<Bubble>();
-        Hat newHat = new GameObject().AddComponent<Hat>();
+
         if (WornHat != null) {
+            Hat newHat = Instantiate(_hatPrefab).GetComponent<Hat>();
             newHat.SetHatType(WornHat.HatSO); // Replace SetHatType parameter with call to bubble director
+            newBubble.EquipHat(newHat);
         }
-        newBubble.EquipHat(newHat);
 
         SplitCount = BubbleStats.SplitTime;
     }
