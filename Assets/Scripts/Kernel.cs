@@ -20,7 +20,7 @@ public class Kernel : MonoBehaviour
         while (elapsed < timeRemaining)
         {
             var t = elapsed / timeRemaining;
-            transform.localScale = Vector3.Lerp(origScale * 0.5f, origScale, t);
+            transform.localScale = Vector3.Lerp(origScale * 0.25f, origScale, t);
             elapsed += Time.deltaTime;            
             yield return null;
         }

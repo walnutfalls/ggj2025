@@ -73,7 +73,7 @@ public class PopcornThrowTool : MonoBehaviour
                 direction = (mousePosition - transform.position).normalized;
             }
         #else
-            // Use the existing direction from the input controller for other platforms
+            direction = input.Actions.Player.Move.ReadValue<Vector2>();
         #endif
         
         
