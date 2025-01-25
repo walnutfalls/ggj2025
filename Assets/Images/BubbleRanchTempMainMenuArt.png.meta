@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BubbleRanchTempMainMenuArt_0: -6242445402925480668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
