@@ -56,6 +56,12 @@ public class PopcornThrowTool : MonoBehaviour
 
     private IEnumerator Throw()
     {
+        if (cookingKernel == null)
+        {
+            throwCoroutine = null;
+            yield break;
+        }
+
         if (cookCoroutine != null)
         {
             StopCoroutine(cookCoroutine);
