@@ -16,10 +16,10 @@ public class Walls : MonoBehaviour
             float halfHeight = cam.orthographicSize;
             float halfWidth = halfHeight * aspect;
 
-            float leftBound = cam.transform.position.x - halfWidth;
-            float rightBound = cam.transform.position.x + halfWidth;
-            float topBound = cam.transform.position.y + halfHeight;
-            float bottomBound = cam.transform.position.y - halfHeight;
+            float leftBound = cam.transform.position.x - halfWidth - Left.GetComponent<BoxCollider2D>().size.x / 2;
+            float rightBound = cam.transform.position.x + halfWidth + Right.GetComponent<BoxCollider2D>().size.x / 2;
+            float topBound = cam.transform.position.y + halfHeight + Top.GetComponent<BoxCollider2D>().size.y / 2;
+            float bottomBound = cam.transform.position.y - halfHeight - Bottom.GetComponent<BoxCollider2D>().size.y / 2;            
             
             Top.transform.position = new Vector3(cam.transform.position.x, topBound, 0);
             Right.transform.position = new Vector3(rightBound, cam.transform.position.y, 0);
