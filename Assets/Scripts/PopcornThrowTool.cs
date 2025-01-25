@@ -68,23 +68,7 @@ public class PopcornThrowTool : MonoBehaviour
             cookCoroutine = null;
         }
 
-        #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
-            if (input.UsingGamepad)
-            {
-                direction = input.Actions.Player.Move.ReadValue<Vector2>();
-            }
-            else
-            {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                direction = (mousePosition - transform.position).normalized;
-            }
-        #else
-            direction = input.Actions.Player.Move.ReadValue<Vector2>();
-        #endif
-        
-        
-        cookingKernel.GetComponent<Rigidbody2D>().AddForce(direction * foce);
-        
+        cookingKernel.GetComponent<Rigidbody2D>().AddForce(input.Movement * foce);
 
         yield return new WaitForSeconds(0.3f);
         throwCoroutine = null;
