@@ -169,7 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
-  popcornThrowTool: {fileID: 0}
 --- !u!114 &6503891867989963669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d51a63212f4b5051b2d47bdd43bdef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cookTime: 3
+  cookTime: 1.5
   foce: 100
   Kernel: {fileID: 2968928162931385867, guid: 0910bc0707e56902a9ae17d5d6abc952, type: 3}
 --- !u!114 &7222346893942982246
