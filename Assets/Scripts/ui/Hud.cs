@@ -16,15 +16,39 @@ public class Hud : MonoBehaviour
 
     public void Start()
     {
-        this.UpdateTimeText();
-        this.bubblesAliveText.SetText("22");
-        this.bubblesPoppedText.SetText("333");
+        this.Reset();
     }
 
     public void Update()
     {
         this.secondsElapsed += Time.deltaTime;
+        this.UpdateTexts();
+    }
+
+    private static string FormatBubbleCount(int number)
+    {
+        return number.ToString("#,#");
+    }
+
+    private void Reset()
+    {
+        this.secondsElapsed = 0.0f;
+        this.UpdateTexts();
+    }
+
+    private void UpdateTexts()
+    {
         this.UpdateTimeText();
+        this.UpdateBubbleCountTexts();
+    }
+
+    private void UpdateBubbleCountTexts()
+    {
+        var bubblesAlive = BubbleDirector.Instance.BubblesAliveCount;
+        var bubblesPopped = BubbleDirector.Instance.BubblesPoppedCount;
+
+        this.bubblesAliveText.SetText(Hud.FormatBubbleCount(bubblesAlive));
+        this.bubblesPoppedText.SetText(Hud.FormatBubbleCount(bubblesPopped));
     }
 
     private void UpdateTimeText()
