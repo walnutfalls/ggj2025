@@ -12,6 +12,10 @@ public class AudioLibrary : ScriptableObject {
         GetSound(soundName).PlaySound();
     }
 
+    public void StopSound(string soundName) {
+        GetSound(soundName).StopAudio();
+    }
+
     private Sound GetSound(string soundName) {
         for (int i = 0; i < Sounds.Count; i++) {
             if (Sounds[i].SoundName != soundName) {

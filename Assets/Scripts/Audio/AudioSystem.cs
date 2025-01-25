@@ -5,8 +5,8 @@ public class AudioSystem : MonoBehaviour {
     [Tooltip("Audio library scriptable to pull sounds from.")]
     [SerializeField] private AudioLibrary _audioLibrary;
 
-    private AudioSystem _instance;
-    public AudioSystem Instance { get => _instance; set { _instance = value; } }
+    private static AudioSystem _instance;
+    public static AudioSystem Instance { get => _instance; set { _instance = value; } }
 
 
     private void Awake() {
@@ -24,6 +24,10 @@ public class AudioSystem : MonoBehaviour {
 
     public void PlaySound(string soundName) {
         _audioLibrary.PlaySound(soundName);
+    }
+
+    public void StopSound(string soundName) {
+        _audioLibrary.StopSound(soundName);
     }
 
     private void GenerateAudioSources() {
