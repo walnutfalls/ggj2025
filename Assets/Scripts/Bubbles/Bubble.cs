@@ -33,6 +33,7 @@ public class Bubble : MonoBehaviour {
     private bool _isStunned;
     public bool IsStunned { get => _isStunned; set { _isStunned = value; } }
 
+    
     private Rigidbody2D _rigidbody;
     public Rigidbody2D Rigidbody { get => _rigidbody; set => _rigidbody = value; }
 
@@ -59,7 +60,10 @@ public class Bubble : MonoBehaviour {
 
     private void Update() {
         if (!IsStunned) {
+            GetComponent<Rigidbody2D>().linearDamping = 1;
             MoveTowardsTarget();
+        } else {
+            GetComponent<Rigidbody2D>().linearDamping = 0;
         }
 
         UpdateHatPosition();

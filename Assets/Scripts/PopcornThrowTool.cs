@@ -23,13 +23,17 @@ public class PopcornThrowTool : MonoBehaviour
 
     private GameObject cookingKernel = null;
 
-
-
-    void Start()
+    void OnEnable()
     {
         input = GetComponent<InputController>();
         input.Actions.Player.Attack.performed += StartCook;
         input.Actions.Player.Attack.canceled += StartThrow;
+    }
+
+    void OnDisable()
+    {        
+        input.Actions.Player.Attack.performed -= StartCook;
+        input.Actions.Player.Attack.canceled -= StartThrow;
     }
     
     public void StartCook(UnityEngine.InputSystem.InputAction.CallbackContext ctx)

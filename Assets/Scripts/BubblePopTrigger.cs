@@ -3,6 +3,7 @@ using UnityEngine;
 public class BubblePopTrigger : MonoBehaviour
 {
     private const int POPCORN_LAYER = 6;
+    private const int BROOM_LAYER = 8;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -11,6 +12,11 @@ public class BubblePopTrigger : MonoBehaviour
         {
             Destroy(other.gameObject);
             ApplyEffect();
+        }
+
+        if (other.gameObject.layer == BROOM_LAYER)
+        {
+            transform.parent.GetComponent<Bubble>().IsStunned = true;
         }
     }
 
