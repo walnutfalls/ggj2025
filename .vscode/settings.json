@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "bubble-farm.sln"
+    "dotnet.defaultSolution": "ggj2025.sln"
 }
