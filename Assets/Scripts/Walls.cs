@@ -6,8 +6,7 @@ public class Walls : MonoBehaviour
     public GameObject Right;
     public GameObject Bottom;
     public GameObject Left;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         Camera cam = Camera.main;
@@ -31,13 +30,6 @@ public class Walls : MonoBehaviour
             Right.GetComponent<BoxCollider2D>().size = new Vector2(1, halfHeight * 2);
             Bottom.GetComponent<BoxCollider2D>().size = new Vector2(halfWidth * 2, 1);
             Left.GetComponent<BoxCollider2D>().size = new Vector2(1, halfHeight * 2);
-        }
-        // Initialization code here
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Update code here
+        }        
     }
 }
