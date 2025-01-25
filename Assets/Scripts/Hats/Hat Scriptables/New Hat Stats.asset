@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hatRarity: 0
   _hatValue: 0
+  _hatSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
