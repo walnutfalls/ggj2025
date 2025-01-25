@@ -14,7 +14,6 @@ public class Hud : MonoBehaviour
 
     private float secondsElapsed = 0.0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
         this.UpdateTimeText();
@@ -22,7 +21,6 @@ public class Hud : MonoBehaviour
         this.bubblesPoppedText.SetText("333");
     }
 
-    // Update is called once per frame
     public void Update()
     {
         this.secondsElapsed += Time.deltaTime;
