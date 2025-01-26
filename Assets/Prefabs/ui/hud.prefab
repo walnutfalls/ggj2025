@@ -3412,7 +3412,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: time
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6290987734435018703, guid: 26d5e54c515024441a2d774c3c68fda9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3533,7 +3534,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: bubbles-popped
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6290987734435018703, guid: 26d5e54c515024441a2d774c3c68fda9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4713,7 +4715,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: bubbles-alive
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6290987734435018703, guid: 26d5e54c515024441a2d774c3c68fda9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
