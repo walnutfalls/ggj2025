@@ -15,6 +15,13 @@ public class BubbleStats : ScriptableObject {
     [SerializeField, Min(0)] private float _maximumVelocity = 1f;
     public float MaximumVelocity { get => _maximumVelocity; }
 
+    [Tooltip("Distance in meters away from current position the bubble wanders to when not following player.")]
+    [SerializeField, Min(0)] private float _wanderDistance;
+    public float WanderDistance { get => _wanderDistance; }
+    [Tooltip("Seconds it takes for bubble to wander to a new position when not following player.")]
+    [SerializeField, Min(0)] private float _wanderSeconds;
+    public float WanderSeconds { get => _wanderSeconds; }
+
     [Header("Stink")]
     [Tooltip("Percentage (0.0 to 1.0) between minimum and maximum stink levels that this bubble begins to be stinky at (i.e. if minStink = 0, maxStink = 50, setting this to 0.25 means this bubble will be stinky at 12.5 stink")]
     [SerializeField, Range(0, 1), Min(0)] private float _stinkStartPercentage = 0.5f;
