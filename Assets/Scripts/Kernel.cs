@@ -24,6 +24,8 @@ public class Kernel : MonoBehaviour
             elapsed += Time.deltaTime;            
             yield return null;
         }
+
+        transform.parent = null;
         
         var go = Instantiate(popcorn, transform.position, Quaternion.identity);
         go.GetComponent<Rigidbody2D>().linearVelocity = GetComponent<Rigidbody2D>().linearVelocity;
