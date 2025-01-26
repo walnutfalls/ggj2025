@@ -48,7 +48,6 @@ public class StatsTracker : SingletonBase<StatsTracker>
 
     public void RegisterHats(IEnumerable<HatScriptable> hats)
     {
-        
         foreach (var hat in hats)
         {
             this.RegisterHat(hat);

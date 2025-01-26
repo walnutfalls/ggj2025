@@ -40,6 +40,7 @@ public class GameDirector : SingletonBase<GameDirector>
 
     public void StartNewGame()
     {
+        BubbleDirector.Instance.ResetBubbleCounts();
         StatsTracker.Instance.OnGameStarted();
         SceneManager.LoadScene(SampleSceneIndex);
     }

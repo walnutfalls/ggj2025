@@ -6,7 +6,6 @@ public class Bubble : MonoBehaviour
 {
     [SerializeField] private float MaxScale = 2;
     [SerializeField] private float MinScale = 1;
-    private float StartingSplitCount;
 
     [Tooltip("Bubble object pool scriptable this object registers/unregisters for on spawn/despawn.")]
     [SerializeField] private BubbleObjectPool _bubbleObjectPool;
@@ -56,11 +55,6 @@ public class Bubble : MonoBehaviour
 
     private void OnDisable() {
         _bubbleObjectPool.AllBubbles.Remove(this);
-
-        if (BubbleDirector.Instance != null)
-        {
-            BubbleDirector.Instance.OnBubblePopped();
-        }
     }
 
     private void Awake() {
@@ -109,6 +103,7 @@ public class Bubble : MonoBehaviour
         float ScaleMultiplier = Mathf.Lerp(MaxScale, MinScale, SplitCount / BubbleStats.SplitTime);
         this.gameObject.transform.localScale = new Vector2(ScaleMultiplier, ScaleMultiplier);
     }
+
     private void AdjustTargetPosition() {
         if (_happiness.BubbleHappiness == Happiness.HappinessStatus.TooHappy) {
             Target = _playerTransform.position;
