@@ -26,11 +26,13 @@ public class GameOverUi : MonoBehaviour
 
     public void OnClickMainMenu()
     {
+        this.PlayClickSound();
         GameDirector.Instance.MainMenu();
     }
 
     public void OnClickTryAgain()
     {
+        this.PlayClickSound();
         GameDirector.Instance.StartNewGame();
     }
 
@@ -46,6 +48,11 @@ public class GameOverUi : MonoBehaviour
         this.victoryContainer.SetActive(true);
         this.lossContainer.SetActive(false);
         this.ShowPopup();
+    }
+
+    private void PlayClickSound()
+    {
+        AudioSystem.Instance.PlaySound("Click");
     }
 
     private void ShowPopup()

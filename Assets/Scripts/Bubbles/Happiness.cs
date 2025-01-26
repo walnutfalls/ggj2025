@@ -28,7 +28,7 @@ public class Happiness : MonoBehaviour {
     private void Update() {
         LowerHappiness(Time.deltaTime);
 
-        BubbleHappiness = CurrentHappinessPercentage < _bubble.BubbleStats.HappyPercentage ? HappinessStatus.Sad : 
+        BubbleHappiness = CurrentHappinessPercentage < _bubble.BubbleStats.HappyPercentage ? HappinessStatus.Sad :
             (CurrentHappinessPercentage < _bubble.BubbleStats.TooHappyPercentage ? HappinessStatus.Happy : HappinessStatus.TooHappy);
     }
 

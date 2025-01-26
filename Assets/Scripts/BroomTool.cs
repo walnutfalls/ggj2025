@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class BroomTool : MonoBehaviour
-{    
+{
 
     private Rigidbody2D rb;
 
@@ -24,7 +24,7 @@ public class BroomTool : MonoBehaviour
     }
 
     void OnDisable()
-    {        
+    {
         input.Actions.Player.Attack.performed -= DoWave;
         input.Actions.Player.Attack.canceled -= StopWave;
     }
@@ -36,13 +36,13 @@ public class BroomTool : MonoBehaviour
         if (_waveCoroutine == null) {
             var dir = input.Look;
             var broomUp = transform.up;
-            var broomUpOrth = new Vector2(-broomUp.y, broomUp.x);            
+            var broomUpOrth = new Vector2(-broomUp.y, broomUp.x);
             var targetRotation = Quaternion.FromToRotation(Vector2.up, dir);
             var angle = Quaternion.Angle(transform.rotation, targetRotation);
 
             if (Vector2.Dot(broomUpOrth, dir) < 0)
             {
-                rb.angularVelocity = -angle * 10;    
+                rb.angularVelocity = -angle * 10;
             } else {
                 rb.angularVelocity = angle * 10;
             }
@@ -52,7 +52,7 @@ public class BroomTool : MonoBehaviour
     public void DoWave(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
         StartCoroutine(_waveCoroutine = WaveBroom());
-    }  
+    }
 
     private void StopWave(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
@@ -62,7 +62,7 @@ public class BroomTool : MonoBehaviour
             _waveCoroutine = null;
         }
     }
-    
+
     private IEnumerator WaveBroom()
     {
         while (true)

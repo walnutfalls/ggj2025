@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public class PopcornThrowTool : MonoBehaviour
-{    
+{
     public float cookTime = 1.5f;
     public float foce = 300f;
 
@@ -14,7 +14,7 @@ public class PopcornThrowTool : MonoBehaviour
 
 
     private InputController input;
-    
+
     private IEnumerator cookCoroutine = null;
     private IEnumerator throwCoroutine = null;
 
@@ -26,19 +26,19 @@ public class PopcornThrowTool : MonoBehaviour
     void OnEnable()
     {
         input = FindFirstObjectByType<InputController>();
-    
-        if (!input.UsingGamepad) 
+
+        if (!input.UsingGamepad)
         {
             input.Actions.Player.Attack.performed += StartCook;
             input.Actions.Player.Attack.canceled += StartThrow;
         }
-        
+
     }
 
     void OnDisable()
-    {    
-        if (!input.UsingGamepad) 
-        {    
+    {
+        if (!input.UsingGamepad)
+        {
             input.Actions.Player.Attack.performed -= StartCook;
             input.Actions.Player.Attack.canceled -= StartThrow;
         }
@@ -57,7 +57,7 @@ public class PopcornThrowTool : MonoBehaviour
                 {
                     _triggered = true;
                     StartCoroutine(cookCoroutine = Cook());
-                }                
+                }
             }
             else if (_triggered && _direction.magnitude < 0.3f)
             {
@@ -69,8 +69,8 @@ public class PopcornThrowTool : MonoBehaviour
         }
     }
 
-    
-    
+
+
     public void StartCook(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
     {
         StartCoroutine(cookCoroutine = Cook());

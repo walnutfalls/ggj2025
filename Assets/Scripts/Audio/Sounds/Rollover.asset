@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 539d2106a6da2c140b00c60e0ea2a815, type: 3}
-  m_Name: Background Music
+  m_Name: Rollover
   m_EditorClassIdentifier: 
-  _soundName: Background Music
-  _clip: {fileID: 8300000, guid: f1ce4b23f8d43e945ba1aef3a725ea8d, type: 3}
-  _volume: 0.7
-  _volumeRange: 0
-  _loop: 1
+  _soundName: Rollover
+  _clip: {fileID: 8300000, guid: 00766ecfe5d1545d98edacea4095360f, type: 3}
+  _volume: 1
+  _volumeRange: 0.1
+  _loop: 0
   _pitch: 1
-  _pitchRange: 0
+  _pitchRange: 0.1
