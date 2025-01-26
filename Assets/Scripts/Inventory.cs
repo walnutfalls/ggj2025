@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Invenory : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     private InputController input;
 
@@ -15,10 +15,13 @@ public class Invenory : MonoBehaviour
             if (value < 0)
             {
                 currentToolIndex = ToolComponents.Count - 1;
-            } else if (value >= ToolComponents.Count)
+            }
+            else if (value >= ToolComponents.Count)
             {
                 currentToolIndex = 0;
-            } else {
+            }
+            else
+            {
                 currentToolIndex = value;
             }
 
@@ -26,6 +29,8 @@ public class Invenory : MonoBehaviour
             ToolComponents[currentToolIndex].SetActive(true);
         }
     }
+
+    public GameObject CurrentTool => ToolComponents[CurrentToolIndex];
 
     private void Awake()
     {

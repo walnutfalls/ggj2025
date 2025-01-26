@@ -1,9 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Hud : MonoBehaviour
 {
     private static readonly TimeSpan MaxTimeElapsedToShow = new(1, 39, 59); // 99:59
+
+    [SerializeField]
+    private List<ToolTipScriptable> toolTipScriptables;
 
     [SerializeField]
     private HatLibrary hatLibrary;
@@ -17,7 +22,14 @@ public class Hud : MonoBehaviour
     [SerializeField]
     private TextWithIcon bubblesPoppedText;
 
+    [SerializeField]
+    private ToolTip toolTipUi;
+
     private float secondsElapsed = 0.0f;
+
+    private Inventory inventory;
+
+    private GameObject previouslySelectedTool;
 
     protected void Start()
     {
@@ -28,6 +40,7 @@ public class Hud : MonoBehaviour
     protected void Update()
     {
         this.secondsElapsed += Time.deltaTime;
+        this.UpdateToolTip();
         this.UpdateTexts();
     }
 
@@ -38,6 +51,7 @@ public class Hud : MonoBehaviour
 
     private void Reset()
     {
+        this.inventory = FindFirstObjectByType<Inventory>();
         this.secondsElapsed = 0.0f;
         this.UpdateTexts();
     }
@@ -70,5 +84,34 @@ public class Hud : MonoBehaviour
             var timeElapsedString = string.Format("{0:0}:{1:00}", timeElapsed.TotalMinutes, timeElapsed.Seconds);
             this.timeText.SetText(timeElapsedString);
         }
+    }
+
+    private void UpdateToolTip()
+    {
+        var selectedTool = this.inventory == null ? null : this.inventory.CurrentTool;
+        if (selectedTool == null)
+        {
+            this.previouslySelectedTool = null;
+            return;
+        }
+
+        if (selectedTool == this.previouslySelectedTool)
+        {
+            return;
+        }
+
+        var toolTipScriptable =
+            toolTipScriptables.Where((sc) => sc.GameObjectName == selectedTool.name).FirstOrDefault();
+
+        if (toolTipScriptable == null)
+        {
+            Debug.LogWarning($"Unable to find a tool-tip scriptable for: {selectedTool.name}.");
+        }
+        else
+        {
+            this.toolTipUi.RenderToolTip(toolTipScriptable);
+        }
+
+        this.previouslySelectedTool = selectedTool;
     }
 }
