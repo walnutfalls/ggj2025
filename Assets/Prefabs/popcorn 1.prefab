@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6777582935060660322}
   - component: {fileID: 663524726680707446}
   m_Layer: 6
-  m_Name: popcorn
+  m_Name: popcorn 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2326715618868753507, guid: e4768509fc38c9536a201a7006ecb51c, type: 3}
+  m_Sprite: {fileID: 1815083928199006208, guid: 213aa629b68c9334894408c46eba7b35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
