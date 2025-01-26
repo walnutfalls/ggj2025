@@ -1093,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 1474029226663161212, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6908310500581972655, guid: e5ec59e98f775db4d80a4704559e559c, type: 3}
     - target: {fileID: 2559353737028097809, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
       propertyPath: Kernel
       value: 
@@ -1169,6 +1173,14 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.13081822
       objectReference: {fileID: 0}
+    - target: {fileID: 3682529519280517151, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
+      propertyPath: fwd
+      value: 
+      objectReference: {fileID: -6908310500581972655, guid: e5ec59e98f775db4d80a4704559e559c, type: 3}
+    - target: {fileID: 3682529519280517151, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
+      propertyPath: back
+      value: 
+      objectReference: {fileID: -2218345600827906380, guid: 9c9557fa7fd9f8848bae42f24301df73, type: 3}
     - target: {fileID: 4497923159247661592, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
