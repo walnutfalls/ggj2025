@@ -26,15 +26,15 @@ public class HatLibrary : ScriptableObject {
 
         if (result <= CommonHatChance) {
             List<HatScriptable> commonHats = HatsList.FindAll(h => h.HatRarity == HatScriptable.Rarity.Common);
-            return commonHats[Random.Range(0, commonHats.Count - 1)];
+            return commonHats[Random.Range(0, commonHats.Count)];
         }
-        else if (result <= UncommonHatChance) {
+        else if (result <= CommonHatChance + UncommonHatChance) {
             List<HatScriptable> uncommonHats = HatsList.FindAll(h => h.HatRarity == HatScriptable.Rarity.Uncommon);
-            return uncommonHats[Random.Range(0, uncommonHats.Count - 1)];
+            return uncommonHats[Random.Range(0, uncommonHats.Count)];
         }
         else {
             List<HatScriptable> rareHats = HatsList.FindAll(h => h.HatRarity == HatScriptable.Rarity.Rare);
-            return rareHats[Random.Range(0, rareHats.Count - 1)];
+            return rareHats[Random.Range(0, rareHats.Count)];
         }
     }
 }
