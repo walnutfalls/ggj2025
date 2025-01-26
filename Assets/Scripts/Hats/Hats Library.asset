@@ -13,4 +13,16 @@ MonoBehaviour:
   m_Name: Hats Library
   m_EditorClassIdentifier: 
   _hatsList:
-  - {fileID: 11400000, guid: 20999f650db3c4946a1705f061629350, type: 2}
+  - {fileID: 11400000, guid: c1887127f3854cd4fb44997e57fbd99c, type: 2}
+  - {fileID: 11400000, guid: 6baa353612e29bf4f917201086d05b93, type: 2}
+  - {fileID: 11400000, guid: 635a3d9f8134cc54b93558615a733f1d, type: 2}
+  - {fileID: 11400000, guid: d64586cb7f0e91c469623e171aa74b26, type: 2}
+  - {fileID: 11400000, guid: 749ab8f46c9953d4ba5be0e54c7d2e67, type: 2}
+  - {fileID: 11400000, guid: a6cbe55a01823724186d70619974034f, type: 2}
+  - {fileID: 11400000, guid: 1be4ebd60f9cca149ae1dfa6dc271a05, type: 2}
+  - {fileID: 11400000, guid: dcfb7c6d2cdf3b74f9235ee5c54a1bc6, type: 2}
+  - {fileID: 11400000, guid: 558ef0d595d0d6f4899604a07a4b9feb, type: 2}
+  - {fileID: 11400000, guid: 0ee505311833e4445a6b409263d6fb6f, type: 2}
+  - {fileID: 11400000, guid: e748f05ae2bed2a40b2bdd3cb6d1a341, type: 2}
+  - {fileID: 11400000, guid: d04ecdbc9d8672348a9c6a4090fe5d74, type: 2}
+  - {fileID: 11400000, guid: 2d1ca765655b78f4596bce3d925280e1, type: 2}
