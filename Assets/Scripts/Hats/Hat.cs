@@ -27,6 +27,10 @@ public class Hat : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        if (BubbleParent != null) {
+            return;
+        }
+
         if (collision.TryGetComponent(out PlayerController player)) {
             GameDirector.Instance.CollectHat(HatSO);
             Destroy(gameObject);
