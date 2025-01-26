@@ -2,9 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class BroomTool : MonoBehaviour
-{
-    [SerializeField]
-    private GameObject broom;
+{    
 
     private Rigidbody2D rb;
 
@@ -14,13 +12,13 @@ public class BroomTool : MonoBehaviour
 
     private void Awake()
     {
-        rb = broom.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         input = GetComponent<InputController>();
     }
 
     private void OnEnable()
     {
-        input = GetComponent<InputController>();
+        input = FindFirstObjectByType<InputController>();
         input.Actions.Player.Attack.performed += DoWave;
         input.Actions.Player.Attack.canceled += StopWave;
     }
@@ -33,14 +31,14 @@ public class BroomTool : MonoBehaviour
 
     private void Update()
     {
-        broom.transform.position = transform.position;
+        transform.position = transform.parent.position;
 
         if (_waveCoroutine == null) {
             var dir = input.Look;
-            var broomUp = broom.transform.up;
+            var broomUp = transform.up;
             var broomUpOrth = new Vector2(-broomUp.y, broomUp.x);            
             var targetRotation = Quaternion.FromToRotation(Vector2.up, dir);
-            var angle = Quaternion.Angle(broom.transform.rotation, targetRotation);
+            var angle = Quaternion.Angle(transform.rotation, targetRotation);
 
             if (Vector2.Dot(broomUpOrth, dir) < 0)
             {

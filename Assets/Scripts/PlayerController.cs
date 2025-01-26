@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
 
     public float runSpeed = 10f;
 
-    private PopcornThrowTool popcornThrowTool;
-
     private void Start()
     {
        Cursor.SetCursor(this.cursor, new Vector2(2.0f, 2.0f), CursorMode.ForceSoftware);
@@ -17,8 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
-        popcornThrowTool = GetComponent<PopcornThrowTool>();
+        body = GetComponent<Rigidbody2D>();        
     }
 
     private void Update()
@@ -26,13 +23,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-
-        if (!popcornThrowTool.IsBusy)
-        {
-            Vector2 movement = new Vector2(horizontal, vertical).normalized * runSpeed;
-            body.linearVelocity = movement;
-        } else {
-            body.linearVelocity = Vector2.zero;
-        }
+        Vector2 movement = new Vector2(horizontal, vertical).normalized * runSpeed;
+        body.linearVelocity = movement;
     }
 }

@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 471549302319336425}
   - component: {fileID: 2984867041257831552}
   - component: {fileID: 3682529519280517151}
-  - component: {fileID: 6503891867989963669}
   - component: {fileID: 7222346893942982246}
-  - component: {fileID: 5017865699283461034}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -37,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7399802930337918268}
+  - {fileID: 1439478928873543185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1474029226663161212
@@ -172,21 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 2800000, guid: a8852ec79593f4f8492c53d43f10f2e5, type: 3}
   runSpeed: 10
---- !u!114 &6503891867989963669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552499493243051123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d51a63212f4b5051b2d47bdd43bdef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cookTime: 1.5
-  foce: 300
-  Kernel: {fileID: 2968928162931385867, guid: 0910bc0707e56902a9ae17d5d6abc952, type: 3}
 --- !u!114 &7222346893942982246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,19 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5139587bc3fe273e900e890c6aeab15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5017865699283461034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552499493243051123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9692413bc06871e53914f5775692c8fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  broom: {fileID: 1425060345048855756}
 --- !u!1 &1425060345048855756
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +231,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 363b41d8373ff125dba739a2b5af41b4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -268,9 +239,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &8202750632600027306
 GameObject:
@@ -283,7 +254,7 @@ GameObject:
   - component: {fileID: 6813305453845238731}
   - component: {fileID: 8866282877178182550}
   - component: {fileID: 3432364294740711447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: broom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 8202750632600027306}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.77, z: 0}
+  m_LocalPosition: {x: 0, y: 7.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -406,13 +377,60 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.32961217, y: 0.4545808}
-      - {x: 0.2819599, y: 0.19858983}
-      - {x: 0.21479483, y: -0.0023373216}
-      - {x: -0.12684527, y: 0.0014705062}
-      - {x: -0.24092478, y: 0.11063014}
-      - {x: -0.30118003, y: 0.20071737}
-      - {x: -0.3232779, y: 0.37158558}
-      - {x: -0.09169917, y: 0.9655109}
-      - {x: 0.23492719, y: 0.76648223}
+    - - {x: 0.37826928, y: 0.34912854}
+      - {x: 0.46697772, y: 0.09497093}
+      - {x: 0.7382157, y: -0.9713276}
+      - {x: -0.71225935, y: -0.9827797}
+      - {x: -0.49583074, y: 0.09740615}
+      - {x: -0.29488614, y: 0.5128248}
+      - {x: -0.07812676, y: 0.99638057}
+      - {x: 0.16026174, y: 0.7918622}
+      - {x: 0.31153694, y: 0.57070184}
   m_UseDelaunayMesh: 0
+--- !u!1 &8587139602044665044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1439478928873543185}
+  - component: {fileID: 2559353737028097809}
+  m_Layer: 3
+  m_Name: PopcornTool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1439478928873543185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587139602044665044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4497923159247661592}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2559353737028097809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587139602044665044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d51a63212f4b5051b2d47bdd43bdef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cookTime: 1.5
+  foce: 300
+  Kernel: {fileID: 0}
