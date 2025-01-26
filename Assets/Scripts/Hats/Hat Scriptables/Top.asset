@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: Top
   m_EditorClassIdentifier: 
-  _name: Top
+  _name: Top Hat
   _hatRarity: 1
   _hatValue: 0
   _hatSprite: {fileID: 21300000, guid: 16ff8f07e5d0b4841b21c0c9514c198c, type: 3}
