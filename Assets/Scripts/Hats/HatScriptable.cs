@@ -3,9 +3,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Hat Stats", menuName = "Hat/Hat Stats")]
 public class HatScriptable : ScriptableObject {
     public enum Rarity { Common, Uncommon, Rare };
+
+    [Tooltip("UI name and unique ID of this hat.")]
+    [SerializeField] private string _name;
+    public string Name { get => _name; set { _name = value; } }
+
     [Tooltip("Rarity of this hat.")]
     [SerializeField] private Rarity _hatRarity;
     public Rarity HatRarity { get => _hatRarity; set { _hatRarity = value; } }
+
     [Tooltip("How much this hat is worth")]
     [SerializeField, Min(0)] private float _hatValue;
     public float HatValue { get => _hatValue; set { _hatValue = value; } }
