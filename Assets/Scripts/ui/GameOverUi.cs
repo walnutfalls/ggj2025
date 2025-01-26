@@ -14,6 +14,7 @@ public class GameOverUi : MonoBehaviour
 
     protected void Start()
     {
+        this.popup.SetActive(false);
         GameDirector.OnGameOver += this.ShowGameOver;
         GameDirector.OnGameWon += this.ShowGameWon;
     }
