@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d9aaee96b4d45acb27097e251240ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hatLibrary: {fileID: 11400000, guid: e0264ed3e2fbe784595006b0c6f265f5, type: 2}
   timeText: {fileID: 5008582816191922941}
   bubblesAliveText: {fileID: 4043211386882892049}
   bubblesPoppedText: {fileID: 6571953437323638626}
@@ -313,8 +314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625d5832b33d144bba880a87f5114300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hats:
-  - {fileID: 11400000, guid: 20999f650db3c4946a1705f061629350, type: 2}
 --- !u!1 &4378531961469424836
 GameObject:
   m_ObjectHideFlags: 0

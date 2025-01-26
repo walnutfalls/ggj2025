@@ -44,7 +44,15 @@ public class StatsTracker : SingletonBase<StatsTracker>
         hatUnlockStatuses[hat.name] = HatStatus.UnlockedInCurrent;
     }
 
-    public void RegisterHat(HatScriptable hat)
+    public void RegisterHats(IEnumerable<HatScriptable> hats)
+    {
+        foreach (var hat in hats)
+        {
+            this.RegisterHat(hat);
+        }
+    }
+
+    private void RegisterHat(HatScriptable hat)
     {
         for (var i = 0; i < this.hatsRegistered.Count; i++)
         {
