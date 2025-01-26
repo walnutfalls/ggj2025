@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hat_Dunce_0: -5435817759482815535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

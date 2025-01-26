@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hat_Sailor_0: 3677567826364593186
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

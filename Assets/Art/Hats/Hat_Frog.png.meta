@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hat_Frog_0: -2732966378836090388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
