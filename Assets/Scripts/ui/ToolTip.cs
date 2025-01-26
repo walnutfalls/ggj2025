@@ -35,7 +35,8 @@ public class ToolTip : MonoBehaviour
 
         if (this.timeUntilFadedOut < TimeToFadeOut)
         {
-            this.canvasGroup.alpha = Mathf.Lerp(1.0f, 0.0f, (TimeToFadeOut - this.timeUntilFadedOut) / TimeToFadeOut);
+            this.canvasGroup.alpha =
+                Mathf.Lerp(1.0f, 0.0f, (TimeToFadeOut - this.timeUntilFadedOut) / TimeToFadeOut);
         }
 
         if (this.timeUntilFadedOut <= 0.0f && !string.IsNullOrEmpty(this.toolNameText.text))
