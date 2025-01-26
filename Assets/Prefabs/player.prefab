@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2984867041257831552}
   - component: {fileID: 3682529519280517151}
   - component: {fileID: 7222346893942982246}
+  - component: {fileID: 753444309758773580}
   m_Layer: 3
   m_Name: player
   m_TagString: Untagged
@@ -183,6 +184,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5139587bc3fe273e900e890c6aeab15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &753444309758773580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552499493243051123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda218c202dab25388b586d1f9832c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToolComponents:
+  - {fileID: 1425060345048855756}
+  - {fileID: 8587139602044665044}
 --- !u!1 &1425060345048855756
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7399802930337918268}
   - component: {fileID: 2240781877183235050}
+  - component: {fileID: 1327998000316557952}
   m_Layer: 3
   m_Name: BroomPivot
   m_TagString: Untagged
@@ -243,6 +260,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1327998000316557952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425060345048855756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9692413bc06871e53914f5775692c8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8202750632600027306
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,4 +462,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cookTime: 1.5
   foce: 300
-  Kernel: {fileID: 0}
+  Kernel: {fileID: 2968928162931385867, guid: 0910bc0707e56902a9ae17d5d6abc952, type: 3}
