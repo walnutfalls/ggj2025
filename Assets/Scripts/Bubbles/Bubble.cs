@@ -2,7 +2,12 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Stink), typeof(Happiness), typeof(BubbleWater)), RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
-public class Bubble : MonoBehaviour {
+public class Bubble : MonoBehaviour
+{
+    [SerializeField] private float MaxScale = 2;
+    [SerializeField] private float MinScale = 1;
+    private float StartingSplitCount;
+    
     [Tooltip("Bubble object pool scriptable this object registers/unregisters for on spawn/despawn.")]
     [SerializeField] private BubbleObjectPool _bubbleObjectPool;
 
@@ -79,6 +84,7 @@ public class Bubble : MonoBehaviour {
             GetComponent<Rigidbody2D>().linearDamping = 0;
         }
 
+        UpdateSize();
         UpdateHatPosition();
         if (_happiness.BubbleHappiness == Happiness.HappinessStatus.Sad) {
             return;
@@ -90,6 +96,13 @@ public class Bubble : MonoBehaviour {
         }
     }
 
+
+    private void UpdateSize()
+    {
+        float ScaleMultiplier = Mathf.Lerp(MaxScale, MinScale, SplitCount / BubbleStats.SplitTime);
+        Debug.Log(ScaleMultiplier);
+        this.gameObject.transform.localScale = new Vector2(ScaleMultiplier, ScaleMultiplier);
+    }
     private void AdjustTargetPosition() {
         if (_happiness.BubbleHappiness == Happiness.HappinessStatus.TooHappy) {
             Target = _playerTransform.position;
