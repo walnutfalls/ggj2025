@@ -22,8 +22,7 @@ public class BubblePopTrigger : MonoBehaviour
 
         if (other.gameObject.layer == PLAYER_LAYER)
         {
-            Destroy(transform.parent.gameObject);
-            AudioSystem.Instance.PlaySound("Discontent Chatter 1");
+            Pop();
         }
     }
 
@@ -31,5 +30,12 @@ public class BubblePopTrigger : MonoBehaviour
     {
         AudioSystem.Instance.PlaySound("Pop Scream 1");
         transform.parent.GetComponent<Happiness>().AddHappiness(popcorn.HappinessIncrease);
+    }
+
+    private void Pop()
+    {
+        Destroy(transform.parent.gameObject);
+        AudioSystem.Instance.PlaySound("Discontent Chatter 1");
+        BubbleDirector.Instance.OnBubblePopped();
     }
 }

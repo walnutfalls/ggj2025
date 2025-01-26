@@ -16,6 +16,11 @@ public class GameDirector : SingletonBase<GameDirector>
     public void CollectHat(HatScriptable hat)
     {
         StatsTracker.Instance.OnHatCollected(hat);
+
+        if (StatsTracker.Instance.AllUnlocked)
+        {
+            GameWon();
+        }
     }
 
     public void GameOver()

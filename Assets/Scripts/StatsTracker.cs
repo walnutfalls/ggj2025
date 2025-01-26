@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StatsTracker : SingletonBase<StatsTracker>
@@ -9,6 +10,9 @@ public class StatsTracker : SingletonBase<StatsTracker>
     private readonly Dictionary<string, HatStatus> hatUnlockStatuses = new();
 
     private readonly List<HatScriptable> hatsRegistered = new();
+
+    public bool AllUnlocked => this.hatUnlockStatuses.Count == this.hatsRegistered.Count
+        && this.hatUnlockStatuses.Values.All(status => status == HatStatus.UnlockedInCurrent);
 
     public void GetHatStatuses(List<Tuple<HatStatus, HatScriptable>> statuses)
     {
@@ -44,6 +48,7 @@ public class StatsTracker : SingletonBase<StatsTracker>
 
     public void RegisterHats(IEnumerable<HatScriptable> hats)
     {
+        
         foreach (var hat in hats)
         {
             this.RegisterHat(hat);

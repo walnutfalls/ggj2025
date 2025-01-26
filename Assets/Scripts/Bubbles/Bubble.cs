@@ -142,6 +142,7 @@ public class Bubble : MonoBehaviour
     public void Split() {
         Bubble newBubble = Instantiate(_bubblePrefab).GetComponent<Bubble>();
         SplitCount = BubbleStats.SplitTime;
+        BubbleDirector.Instance.OnBubbleSpawned();
     }
 
     public void EquipHat(Hat hat) {

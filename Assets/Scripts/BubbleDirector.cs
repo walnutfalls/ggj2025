@@ -8,6 +8,11 @@ public class BubbleDirector : SingletonBase<BubbleDirector>
     {
         this.BubblesAliveCount--;
         this.BubblesPoppedCount++;
+
+        if (this.BubblesAliveCount == 0)
+        {
+            GameDirector.Instance.GameOver();
+        }
     }
 
     public void OnBubbleSpawned()
