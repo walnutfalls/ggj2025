@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: New Hat Stats
   m_EditorClassIdentifier: 
+  _name: Test Hat
   _hatRarity: 0
   _hatValue: 0
   _hatSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}

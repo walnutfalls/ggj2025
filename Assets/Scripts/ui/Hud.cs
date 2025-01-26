@@ -14,12 +14,12 @@ public class Hud : MonoBehaviour
 
     private float secondsElapsed = 0.0f;
 
-    public void Start()
+    protected void Start()
     {
         this.Reset();
     }
 
-    public void Update()
+    protected void Update()
     {
         this.secondsElapsed += Time.deltaTime;
         this.UpdateTexts();

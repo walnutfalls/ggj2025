@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StatsPanel : MonoBehaviour
@@ -12,7 +14,15 @@ public class StatsPanel : MonoBehaviour
     private MouseDetector panelContainer;
 
     [SerializeField]
+    private StatsTracker statsTracker;
+
+    [SerializeField]
+    private List<HatStatusRow> hatStatusRows;
+
+    [SerializeField]
     private float transitionSpeed;
+
+    private readonly List<Tuple<StatsTracker.HatStatus, HatScriptable>> hatStatuses = new();
 
     private bool isPanelOpen = false;
 
@@ -29,7 +39,7 @@ public class StatsPanel : MonoBehaviour
         set => this.panelPortalGroup.alpha = value;
     }
 
-    public void Start()
+    protected void Start()
     {
         this.panelTargetOpacity = this.transform.position.x;
 
@@ -37,8 +47,13 @@ public class StatsPanel : MonoBehaviour
         this.PanelPortalActive = false;
     }
 
-    public void Update()
+    protected void Update()
     {
+        if (this.isPanelOpen)
+        {
+            this.UpdateHatStatuses();
+        }
+
         var shouldPanelBeOpen =
             this.triggerDetector.IsMouseOver
             || (this.isPanelOpen && this.panelContainer.IsMouseOver);
@@ -80,5 +95,27 @@ public class StatsPanel : MonoBehaviour
 
         this.PanelPortalActive = true;
         this.panelTargetOpacity = 1.0f;
+    }
+
+    private void UpdateHatStatuses()
+    {
+        this.statsTracker.GetHatStatuses(this.hatStatuses);
+
+        for (var i = 0; i < this.hatStatusRows.Count; i++)
+        {
+            var row = this.hatStatusRows[i];
+
+            if (i >= this.hatStatuses.Count)
+            {
+                row.gameObject.SetActive(false);
+                continue;
+            }
+
+            var status = this.hatStatuses[i];
+
+            row.gameObject.SetActive(true);
+            row.SetHat(status.Item2);
+            row.SetStatus(status.Item1);
+        }
     }
 }
