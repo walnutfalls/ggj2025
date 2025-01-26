@@ -2,11 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsTracker : MonoBehaviour
+public class StatsTracker : SingletonBase<StatsTracker>
 {
-    [SerializeField]
-    private List<HatScriptable> hats;
-
     public enum HatStatus { Locked, UnlockedInPrevious, UnlockedInCurrent };
 
     public int GamesStarted { get; private set; } = 0;
@@ -14,11 +11,6 @@ public class StatsTracker : MonoBehaviour
     private readonly Dictionary<string, HatStatus> hatUnlockStatuses = new();
 
     private readonly List<HatScriptable> hatsRegistered = new();
-
-    protected void Start()
-    {
-        this.hats.ForEach((h) => this.RegisterHat(h));
-    }
 
     public void GetHatStatuses(List<Tuple<HatStatus, HatScriptable>> statuses)
     {
@@ -47,7 +39,12 @@ public class StatsTracker : MonoBehaviour
         }
     }
 
-    private void RegisterHat(HatScriptable hat)
+    public void OnHatCollected(HatScriptable hat)
+    {
+        hatUnlockStatuses[hat.name] = HatStatus.UnlockedInCurrent;
+    }
+
+    public void RegisterHat(HatScriptable hat)
     {
         for (var i = 0; i < this.hatsRegistered.Count; i++)
         {
