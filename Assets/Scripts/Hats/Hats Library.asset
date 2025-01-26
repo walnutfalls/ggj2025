@@ -26,3 +26,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e748f05ae2bed2a40b2bdd3cb6d1a341, type: 2}
   - {fileID: 11400000, guid: d04ecdbc9d8672348a9c6a4090fe5d74, type: 2}
   - {fileID: 11400000, guid: 2d1ca765655b78f4596bce3d925280e1, type: 2}
+  _commonHatChance: 80
+  _uncommonHatChance: 25
+  _rareHatChance: 2

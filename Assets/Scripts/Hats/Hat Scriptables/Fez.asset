@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Fez
   m_EditorClassIdentifier: 
   _name: Fez
-  _hatRarity: 0
+  _hatRarity: 1
   _hatValue: 0
-  _hatSprite: {fileID: 4815464788331475219, guid: 9671c1bc6a2ab1541a222a14354822af, type: 3}
+  _hatSprite: {fileID: 21300000, guid: 9671c1bc6a2ab1541a222a14354822af, type: 3}

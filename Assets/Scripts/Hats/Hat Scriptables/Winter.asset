@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Winter
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: -1534865192295317615, guid: db15ef4babaa11147bfe461df9998508, type: 3}
+  _hatSprite: {fileID: 21300000, guid: db15ef4babaa11147bfe461df9998508, type: 3}

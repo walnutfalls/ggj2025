@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Propeller
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: 537833936471913241, guid: 0cf1119f455b3f44f9919ea5cc18eb47, type: 3}
+  _hatSprite: {fileID: 21300000, guid: 0cf1119f455b3f44f9919ea5cc18eb47, type: 3}
