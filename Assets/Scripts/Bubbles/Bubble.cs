@@ -18,6 +18,9 @@ public class Bubble : MonoBehaviour
     [Tooltip("Hat prefab used for bubble splitting.")]
     [SerializeField] private GameObject _hatPrefab;
 
+    [Tooltip("Reference to the hat library for generating RNG hats.")]
+    [SerializeField] private HatLibrary _hatLibrary;
+
     [Tooltip("Prefab used for spawning bubbles when they split.")]
     [SerializeField] private GameObject _bubblePrefab;
     private float _splitCount;
@@ -63,6 +66,10 @@ public class Bubble : MonoBehaviour
     private void Awake() {
         Rigidbody = GetComponent<Rigidbody2D>();
         _happiness = GetComponent<Happiness>();
+
+        Hat newHat = Instantiate(_hatPrefab).GetComponent<Hat>();
+        newHat.SetHatType(_hatLibrary.GetRandomHat());
+        EquipHat(newHat);
 
         PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
         if (players.Length != 0) {
@@ -134,13 +141,6 @@ public class Bubble : MonoBehaviour
     [ContextMenu("Split")]
     public void Split() {
         Bubble newBubble = Instantiate(_bubblePrefab).GetComponent<Bubble>();
-
-        if (WornHat != null) {
-            Hat newHat = Instantiate(_hatPrefab).GetComponent<Hat>();
-            newHat.SetHatType(WornHat.HatSO); // Replace SetHatType parameter with call to bubble director
-            newBubble.EquipHat(newHat);
-        }
-
         SplitCount = BubbleStats.SplitTime;
     }
 
