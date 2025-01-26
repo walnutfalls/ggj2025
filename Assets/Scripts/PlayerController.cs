@@ -24,15 +24,14 @@ public class PlayerController : MonoBehaviour
 
         var lastHatSr = _nextHatPos.gameObject.GetComponent<SpriteRenderer>();
         
-
         var hatGo = new GameObject();
         var sr = hatGo.AddComponent<SpriteRenderer>();
         sr.sprite = hat.HatSprite;
         sr.sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1 + WornHats.Count;        
         hatGo.transform.parent = _nextHatPos;
         hatGo.transform.localPosition = Vector2.up * lastHatSr.bounds.extents.y;
-        _nextHatPos = hatGo.transform;
 
+        _nextHatPos = hatGo.transform;
         hatGo.transform.localScale *= GetComponent<SpriteRenderer>().bounds.extents.x / hat.HatSprite.bounds.extents.x;
         WornHats.Add(hat);
     }
