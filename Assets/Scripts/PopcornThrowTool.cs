@@ -25,7 +25,7 @@ public class PopcornThrowTool : MonoBehaviour
 
     void OnEnable()
     {
-        input = GetComponent<InputController>();
+        input = FindFirstObjectByType<InputController>();
         input.Actions.Player.Attack.performed += StartCook;
         input.Actions.Player.Attack.canceled += StartThrow;
     }
