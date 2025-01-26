@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: Umbrella
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Umbrella
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: 0}
+  _hatSprite: {fileID: 2699972039648099217, guid: b1a96658e105f584998359a74841fc76, type: 3}

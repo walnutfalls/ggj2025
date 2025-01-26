@@ -70,7 +70,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -351,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -360,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bubble_Face_Angry_0: -169335189262863131
+      Bubble_Face_Angry_1: -5735672624026187718
+      Bubble_Face_Angry_2: -6815169059667952313
+      Bubble_Face_Angry_3: 1733314371915331878
+      Bubble_Face_Angry_4: 8562846973054563339
+      Bubble_Face_Angry_5: 422152915299143793
+      Bubble_Face_Angry_6: -4594170516393663226
+      Bubble_Face_Angry_7: 6493333657882056347
+      Bubble_Face_Angry_8: 6942104865665130092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

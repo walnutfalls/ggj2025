@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: Chef
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Chef
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: 0}
+  _hatSprite: {fileID: -4142980882921238632, guid: 1ccf15fa29812dd4ab381ffd4a622a1e, type: 3}

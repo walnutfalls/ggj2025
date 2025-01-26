@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: Bowler
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Bowler
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: 0}
+  _hatSprite: {fileID: 1191329664886414178, guid: a2b3ced0dc24ce04e9782007c5858a9f, type: 3}

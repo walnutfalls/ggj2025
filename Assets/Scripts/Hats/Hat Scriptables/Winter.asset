@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: Winter
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Winter
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: 0}
+  _hatSprite: {fileID: -1534865192295317615, guid: db15ef4babaa11147bfe461df9998508, type: 3}

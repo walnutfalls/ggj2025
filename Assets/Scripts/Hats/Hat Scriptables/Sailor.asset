@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5eac5e2b0a8151459c165824dde48ba, type: 3}
   m_Name: Sailor
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Sailor
   _hatRarity: 0
   _hatValue: 0
-  _hatSprite: {fileID: 0}
+  _hatSprite: {fileID: 3677567826364593186, guid: 2bf21889ff6bb0c4dac02557a68d4b8f, type: 3}
