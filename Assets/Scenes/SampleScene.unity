@@ -463,8 +463,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 646328049}
+  - component: {fileID: 646328050}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AudioSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -485,6 +486,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646328050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646328048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5567db8d7a4a796408f5253efb8c01a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioLibrary: {fileID: 11400000, guid: 6fb8b9d31ff685546b268457a1ed8abd, type: 2}
 --- !u!1001 &846064537
 PrefabInstance:
   m_ObjectHideFlags: 0
