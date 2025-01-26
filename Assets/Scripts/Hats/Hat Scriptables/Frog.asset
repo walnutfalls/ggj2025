@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Frog
   m_EditorClassIdentifier: 
   _name: Frog
-  _hatRarity: 0
+  _hatRarity: 1
   _hatValue: 0
-  _hatSprite: {fileID: -2732966378836090388, guid: 6ab5556dd29ff5d4681020d26543acd1, type: 3}
+  _hatSprite: {fileID: 21300000, guid: 6ab5556dd29ff5d4681020d26543acd1, type: 3}
