@@ -29,4 +29,6 @@ MonoBehaviour:
   _wateredSeconds: 15
   _normalSize: 1
   _wateredSize: 1.5
-  _faceSprites: []
+  _sadFaceSprite: {fileID: 21300000, guid: c57b78393e18c014aad9836ea0ae1f70, type: 3}
+  _happyFaceSprite: {fileID: 21300000, guid: 0766c0fa9acf67047826e2b3d0a91759, type: 3}
+  _tooHappyFaceSprite: {fileID: 21300000, guid: 1799bf94c0a81fe489d92e8ab19962e2, type: 3}
