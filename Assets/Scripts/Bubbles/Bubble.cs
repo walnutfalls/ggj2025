@@ -1,11 +1,12 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Stink), typeof(Happiness), typeof(BubbleWater)), RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class Bubble : MonoBehaviour
 {
-    [SerializeField] private float MaxScale = 2;
-    [SerializeField] private float MinScale = 1;
+    [SerializeField] private float MaxScale = 2.0f;
+    [SerializeField] private float MinScale = 1.0f;
 
     [Tooltip("Bubble object pool scriptable this object registers/unregisters for on spawn/despawn.")]
     [SerializeField] private BubbleObjectPool _bubbleObjectPool;
@@ -48,6 +49,10 @@ public class Bubble : MonoBehaviour
 
     private Happiness _happiness;
 
+    private Vector2 _defaultHatScale = Vector2.one;
+
+    private Vector2? _defaultSelfScale = null;
+
     private void OnEnable() {
         BubbleDirector.Instance.OnBubbleSpawned();
         _bubbleObjectPool.AllBubbles.Add(this);
@@ -63,6 +68,7 @@ public class Bubble : MonoBehaviour
 
         Hat newHat = Instantiate(_hatPrefab).GetComponent<Hat>();
         newHat.SetHatType(_hatLibrary.GetRandomHat());
+        this._defaultHatScale = newHat.gameObject.transform.localScale;
         EquipHat(newHat);
 
         PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
@@ -86,7 +92,7 @@ public class Bubble : MonoBehaviour
         }
 
         UpdateSize();
-        UpdateHatPosition();
+        UpdateHatTransform();
         if (_happiness.BubbleHappiness == Happiness.HappinessStatus.Sad) {
             return;
         }
@@ -97,11 +103,15 @@ public class Bubble : MonoBehaviour
         }
     }
 
-
     private void UpdateSize()
     {
         float ScaleMultiplier = Mathf.Lerp(MaxScale, MinScale, SplitCount / BubbleStats.SplitTime);
         this.gameObject.transform.localScale = new Vector2(ScaleMultiplier, ScaleMultiplier);
+
+        if (this._defaultSelfScale == null)
+        {
+            this._defaultSelfScale = this.gameObject.transform.localScale;
+        }
     }
 
     private void AdjustTargetPosition() {
@@ -117,12 +127,16 @@ public class Bubble : MonoBehaviour
         }
     }
 
-    private void UpdateHatPosition() {
+    private void UpdateHatTransform() {
         if (WornHat == null) {
             return;
         }
 
         WornHat.transform.position = _hatPivot.position;
+        WornHat.transform.localScale =
+            this._defaultHatScale
+            * this.gameObject.transform.localScale.x
+            / this._defaultSelfScale.GetValueOrDefault(Vector2.one).x;
     }
 
     private void MoveTowardsTarget() {

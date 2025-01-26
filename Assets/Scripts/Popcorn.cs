@@ -6,9 +6,11 @@ public class Popcorn : MonoBehaviour
     [SerializeField] private float _happinessIncrease;
     public float HappinessIncrease { get => _happinessIncrease; set { _happinessIncrease = value; } }
 
-
     void Start()
     {
-        AudioSystem.Instance.PlaySound("Popcorn Bomb");
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.Instance.PlaySound("Popcorn Bomb");
+        }
     }
 }
