@@ -32,11 +32,14 @@ public class StatsTracker : SingletonBase<StatsTracker>
     {
         this.GamesStarted++;
 
-        foreach (var kvp in this.hatUnlockStatuses)
+        // Copy the keys to prevent 'updated while enumerating' error.
+        var unlockStatusKeys = new List<string>(this.hatUnlockStatuses.Keys);
+
+        foreach (var key in unlockStatusKeys)
         {
-            if (kvp.Value == HatStatus.UnlockedInCurrent)
+            if (this.hatUnlockStatuses[key] == HatStatus.UnlockedInCurrent)
             {
-                this.hatUnlockStatuses[kvp.Key] = HatStatus.UnlockedInPrevious;
+                this.hatUnlockStatuses[key] = HatStatus.UnlockedInPrevious;
             }
         }
     }
