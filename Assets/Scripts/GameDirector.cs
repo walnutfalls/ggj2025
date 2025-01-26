@@ -1,10 +1,14 @@
-
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameDirector : SingletonBase<GameDirector>
 {
     const int SampleSceneIndex = 1;
+
+    public static event Action OnGameOver;
+
+    public static event Action OnGameWon;
 
     public void CollectHat(HatScriptable hat)
     {
@@ -13,10 +17,12 @@ public class GameDirector : SingletonBase<GameDirector>
 
     public void GameOver()
     {
+        OnGameOver?.Invoke();
     }
 
     public void GameWon()
     {
+        OnGameWon?.Invoke();
     }
 
     public void StartNewGame()

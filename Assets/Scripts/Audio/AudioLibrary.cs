@@ -25,7 +25,7 @@ public class AudioLibrary : ScriptableObject {
             return Sounds[i];
         }
 
-        Debug.Log($"Could not find sound with provided name {soundName}!", this);
+        Debug.LogWarning($"Could not find sound with provided name {soundName}!", this);
         return null;
     }
 }
