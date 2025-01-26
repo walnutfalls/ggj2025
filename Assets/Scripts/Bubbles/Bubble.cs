@@ -33,7 +33,6 @@ public class Bubble : MonoBehaviour {
     private bool _isStunned;
     public bool IsStunned { get => _isStunned; set { _isStunned = value; } }
 
-    
     private Rigidbody2D _rigidbody;
     public Rigidbody2D Rigidbody { get => _rigidbody; set => _rigidbody = value; }
 
