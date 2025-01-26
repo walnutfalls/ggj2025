@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,8 +13,33 @@ public class PlayerController : MonoBehaviour
 
     public float runSpeed = 10f;
 
+    private Transform _nextHatPos;
+
+    private HashSet<HatScriptable> WornHats = new HashSet<HatScriptable>();
+    
+
+    public void ReceiveHat(HatScriptable hat)
+    {
+        if (WornHats.Contains(hat)) return;
+
+        var lastHatSr = _nextHatPos.gameObject.GetComponent<SpriteRenderer>();
+        
+
+        var hatGo = new GameObject();
+        var sr = hatGo.AddComponent<SpriteRenderer>();
+        sr.sprite = hat.HatSprite;
+        sr.sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1 + WornHats.Count;        
+        hatGo.transform.parent = _nextHatPos;
+        hatGo.transform.localPosition = Vector2.up * lastHatSr.bounds.extents.y;
+        _nextHatPos = hatGo.transform;
+
+        hatGo.transform.localScale *= GetComponent<SpriteRenderer>().bounds.extents.x / hat.HatSprite.bounds.extents.x;
+        WornHats.Add(hat);
+    }
+
     private void Start()
     {
+        _nextHatPos = transform;
        Cursor.SetCursor(this.cursor, new Vector2(2.0f, 2.0f), CursorMode.ForceSoftware);
     }
 

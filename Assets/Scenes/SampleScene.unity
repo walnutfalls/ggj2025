@@ -299,6 +299,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4004eae6d78b8f58870de13b8f9ee5c, type: 3}
+--- !u!1 &484034833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484034834}
+  m_Layer: 3
+  m_Name: HatPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484034834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484034833}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.279, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 58887926}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1281,10 @@ PrefabInstance:
       propertyPath: back
       value: 
       objectReference: {fileID: -2218345600827906380, guid: 9c9557fa7fd9f8848bae42f24301df73, type: 3}
+    - target: {fileID: 3682529519280517151, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
+      propertyPath: _nextHatPos
+      value: 
+      objectReference: {fileID: 484034834}
     - target: {fileID: 3715364396331234089, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1365,6 +1400,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4497923159247661592, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1507090848}
+    - targetCorrespondingSourceObject: {fileID: 4497923159247661592, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 484034834}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01f8b2c26aafa2edab79b1f57e17feac, type: 3}
 --- !u!1001 &8893600840416344775

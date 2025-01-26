@@ -32,6 +32,7 @@ public class Hat : MonoBehaviour {
         }
 
         if (collision.TryGetComponent(out PlayerController player)) {
+            player.ReceiveHat(HatSO);
             GameDirector.Instance.CollectHat(HatSO);
             Destroy(gameObject);
         }
