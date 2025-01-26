@@ -1,11 +1,13 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] private Canvas HowToPlayCanvas;
+
     [SerializeField] private Canvas MainMenuCanvas;
-    
+
     //Used by "Play" button
     public void PlayButton()
     {
@@ -14,6 +16,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void QuitGame()
     {
+        EditorApplication.ExitPlaymode();
         Application.Quit();
     }
 
