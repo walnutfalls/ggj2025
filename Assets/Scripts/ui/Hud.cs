@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Hud : MonoBehaviour
 {
+    private const float TimeToShowControls = 4.0f;
+
+    private const float TimeToFadeOutControls = 1.0f;
+
     private static readonly TimeSpan MaxTimeElapsedToShow = new(1, 39, 59); // 99:59
 
     [SerializeField]
@@ -24,6 +28,9 @@ public class Hud : MonoBehaviour
 
     [SerializeField]
     private ToolTip toolTipUi;
+
+    [SerializeField]
+    private CanvasGroup controlsUi;
 
     private float secondsElapsed = 0.0f;
 
@@ -60,6 +67,7 @@ public class Hud : MonoBehaviour
     {
         this.UpdateTimeText();
         this.UpdateBubbleCountTexts();
+        this.UpdateControlsUiVisibility();
     }
 
     private void UpdateBubbleCountTexts()
@@ -69,6 +77,20 @@ public class Hud : MonoBehaviour
 
         this.bubblesAliveText.SetText(FormatBubbleCount(bubblesAlive));
         this.bubblesPoppedText.SetText(FormatBubbleCount(bubblesPopped));
+    }
+
+    private void UpdateControlsUiVisibility()
+    {
+        if (this.secondsElapsed < TimeToShowControls)
+        {
+            this.controlsUi.alpha = 1.0f;
+            return;
+        }
+
+        var timeUntilFadeOut = TimeToShowControls + TimeToFadeOutControls - this.secondsElapsed;
+
+        this.controlsUi.alpha =
+            Mathf.Lerp(1.0f, 0.0f, (TimeToFadeOutControls - timeUntilFadeOut) / TimeToFadeOutControls);
     }
 
     private void UpdateTimeText()
