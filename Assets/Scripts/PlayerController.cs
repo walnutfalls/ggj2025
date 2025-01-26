@@ -2,10 +2,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Texture2D cursor;
+
     private Rigidbody2D body;
+
     public float runSpeed = 10f;
 
     private PopcornThrowTool popcornThrowTool;
+
+    private void Start()
+    {
+       Cursor.SetCursor(this.cursor, new Vector2(2.0f, 2.0f), CursorMode.ForceSoftware);
+    }
 
     private void Awake()
     {
