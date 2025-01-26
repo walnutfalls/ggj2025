@@ -43,8 +43,12 @@ public class Bubble : MonoBehaviour {
     }
 
     private void OnDisable() {
-        BubbleDirector.Instance.OnBubblePopped();
         _bubbleObjectPool.AllBubbles.Remove(this);
+
+        if (BubbleDirector.Instance != null)
+        {
+            BubbleDirector.Instance.OnBubblePopped();
+        }
     }
 
     private void Awake() {
