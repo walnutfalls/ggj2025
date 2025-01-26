@@ -1,7 +1,8 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class LeafBlower : MonoBehaviour {
+public class LeafBlower : MonoBehaviour
+{
     [Tooltip("Scriptable that holds a list of all bubble objects.")]
     [SerializeField] private BubbleObjectPool _bubblePool;
 
@@ -18,9 +19,11 @@ public class LeafBlower : MonoBehaviour {
 
     private InputController _input;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         InputController[] inputs = FindObjectsByType<InputController>(FindObjectsSortMode.None);
-        if (inputs.Length != 0) {
+        if (inputs.Length != 0)
+        {
             _input = inputs[0];
         }
 
@@ -28,21 +31,31 @@ public class LeafBlower : MonoBehaviour {
         _input.Actions.Player.Attack.canceled += StopBlowing;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         _input.Actions.Player.Attack.performed -= StartBlowing;
         _input.Actions.Player.Attack.canceled -= StopBlowing;
     }
 
-    private void Update() {
+    private void Update()
+    {
         var dir = _input.Look;
         transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
 
-        if (!_isBlowing) {
+        if (_input.UsingGamepad)
+        {
+            UpdateGamepad(dir);
+        }
+
+        if (!_isBlowing)
+        {
             return;
         }
 
-        for (int i = 0; i < _bubblePool.AllBubbles.Count; i++) {
-            if (!IsWithinCone(_bubblePool.AllBubbles[i].transform.position)) {
+        for (int i = 0; i < _bubblePool.AllBubbles.Count; i++)
+        {
+            if (!IsWithinCone(_bubblePool.AllBubbles[i].transform.position))
+            {
                 continue;
             }
 
@@ -50,22 +63,41 @@ public class LeafBlower : MonoBehaviour {
         }
     }
 
-    private void StartBlowing(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+    private void UpdateGamepad(Vector2 dir)
+    {
+        if (dir.magnitude > 0.3f && !_isBlowing)
+        {
+            _isBlowing = true;
+            AudioSystem.Instance.PlaySound("Leaf Blower");
+        }
+        else if (_isBlowing && dir.magnitude < 0.3f)
+        {
+            _isBlowing = false;
+            AudioSystem.Instance.StopSound("Leaf Blower");
+        }
+    }
+
+    private void StartBlowing(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
         _isBlowing = true;
         AudioSystem.Instance.PlaySound("Leaf Blower");
     }
 
-    private void StopBlowing(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+    private void StopBlowing(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
         _isBlowing = false;
         AudioSystem.Instance.StopSound("Leaf Blower");
     }
 
-    private bool IsWithinCone(Vector3 position) {
-        if (Vector3.Distance(position, transform.position) > _range) {
+    private bool IsWithinCone(Vector3 position)
+    {
+        if (Vector3.Distance(position, transform.position) > _range)
+        {
             return false;
         }
 
-        if (Vector3.Angle(transform.up, position - transform.position) > _angle * 0.5f) {
+        if (Vector3.Angle(transform.up, position - transform.position) > _angle * 0.5f)
+        {
             return false;
         }
 
