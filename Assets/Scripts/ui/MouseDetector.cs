@@ -8,7 +8,7 @@ public class MouseDetector : MonoBehaviour
 
     private List<RaycastResult> preallocatedRaycastResultList = new();
 
-    public void Update()
+    protected void Update()
     {
         this.IsMouseOver = this.IsMouseOverSelf();
     }
@@ -26,15 +26,12 @@ public class MouseDetector : MonoBehaviour
 
         foreach (var raycastResult in preallocatedRaycastResultList)
         {
-            Debug.Log($"casting to {raycastResult.gameObject.name}");
             if (raycastResult.gameObject.Equals(this.gameObject))
             {
-                Debug.Log($"true for {this.name}");
                 return true;
             }
         }
 
-                Debug.Log($"false for {this.name}");
         return false;
     }
 }
