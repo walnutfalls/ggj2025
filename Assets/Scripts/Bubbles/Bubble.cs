@@ -100,7 +100,6 @@ public class Bubble : MonoBehaviour
     private void UpdateSize()
     {
         float ScaleMultiplier = Mathf.Lerp(MaxScale, MinScale, SplitCount / BubbleStats.SplitTime);
-        Debug.Log(ScaleMultiplier);
         this.gameObject.transform.localScale = new Vector2(ScaleMultiplier, ScaleMultiplier);
     }
     private void AdjustTargetPosition() {
