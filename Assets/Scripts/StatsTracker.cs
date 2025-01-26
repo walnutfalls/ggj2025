@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class StatsTracker : SingletonBase<StatsTracker>
 {
-    public enum HatStatus { Locked, UnlockedInPrevious, UnlockedInCurrent };
-
     public int GamesStarted { get; private set; } = 0;
 
     private readonly Dictionary<string, HatStatus> hatUnlockStatuses = new();

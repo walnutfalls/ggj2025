@@ -15,7 +15,7 @@ public class HatStatusRow : MonoBehaviour
 
     private HatScriptable hat;
 
-    private StatsTracker.HatStatus status;
+    private HatStatus status;
 
     protected void Start()
     {
@@ -28,7 +28,7 @@ public class HatStatusRow : MonoBehaviour
         this.UpdateUiValues();
     }
 
-    public void SetStatus(StatsTracker.HatStatus status)
+    public void SetStatus(HatStatus status)
     {
         this.status = status;
         this.UpdateUiValues();
@@ -38,10 +38,10 @@ public class HatStatusRow : MonoBehaviour
     {
         this.nameText.text = this.hat.Name.ToUpper();
 
-        Sprite rowSprite = this.status == StatsTracker.HatStatus.Locked
+        Sprite rowSprite = this.status == HatStatus.Locked
             ? this.lockedIconSprite
             : this.hat.HatSprite;
-        float rowOpacity = this.status == StatsTracker.HatStatus.UnlockedInCurrent
+        float rowOpacity = this.status == HatStatus.UnlockedInCurrent
             ? 1.0f
             : 0.5f;
 
