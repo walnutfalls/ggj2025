@@ -96,6 +96,8 @@ public class PopcornThrowTool : MonoBehaviour
             yield break;
         }
 
+        cookingKernel.transform.parent = null;
+
         if (cookCoroutine != null)
         {
             StopCoroutine(cookCoroutine);
