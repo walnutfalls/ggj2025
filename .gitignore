@@ -1,4 +1,5 @@
 .DS_Store
+*.blob
 
 /[Ll]ibrary/
 /[Tt]emp/

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Hud : MonoBehaviour
 {
+    private static readonly TimeSpan MaxTimeElapsedToShow = new(1, 39, 59); // 99:59
+
     [SerializeField]
     private HatLibrary hatLibrary;
 
@@ -58,7 +60,15 @@ public class Hud : MonoBehaviour
     private void UpdateTimeText()
     {
         var timeElapsed = TimeSpan.FromSeconds(this.secondsElapsed);
-        var timeElapsedString = string.Format("{0:0}:{1:00}", timeElapsed.TotalMinutes, timeElapsed.Seconds);
-        this.timeText.SetText(timeElapsedString);
+
+        if (timeElapsed > MaxTimeElapsedToShow)
+        {
+            this.timeText.SetText("99:59+");
+        }
+        else
+        {
+            var timeElapsedString = string.Format("{0:0}:{1:00}", timeElapsed.TotalMinutes, timeElapsed.Seconds);
+            this.timeText.SetText(timeElapsedString);
+        }
     }
 }
