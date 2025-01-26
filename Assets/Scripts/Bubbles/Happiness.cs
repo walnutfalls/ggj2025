@@ -22,7 +22,7 @@ public class Happiness : MonoBehaviour {
     }
 
     private void Start() {
-        CurrentHappiness = _bubble.BubbleStats.SpawnHappinessPercentage;
+        CurrentHappiness = Mathf.Lerp(_bubble.BubbleStats.MinHappiness, _bubble.BubbleStats.MaxHappiness, _bubble.BubbleStats.SpawnHappinessPercentage);
     }
 
     private void Update() {
