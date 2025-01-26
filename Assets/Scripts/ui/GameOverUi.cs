@@ -1,20 +1,37 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class GameOverUi : MonoBehaviour
 {
     [SerializeField]
-    public GameObject popup;
+    private GameObject popup;
 
     [SerializeField]
-    public GameObject victoryContainer;
+    private GameObject victoryContainer;
 
     [SerializeField]
-    public GameObject lossContainer;
+    private GameObject lossContainer;
 
     protected void Start()
     {
         GameDirector.OnGameOver += this.ShowGameOver;
         GameDirector.OnGameWon += this.ShowGameWon;
+    }
+
+    protected void OnDestroy()
+    {
+        GameDirector.OnGameOver -= this.ShowGameOver;
+        GameDirector.OnGameWon -= this.ShowGameWon;
+    }
+
+    public void OnClickMainMenu()
+    {
+        GameDirector.Instance.MainMenu();
+    }
+
+    public void OnClickTryAgain()
+    {
+        GameDirector.Instance.StartNewGame();
     }
 
     public void ShowGameOver()

@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameDirector : SingletonBase<GameDirector>
 {
+    const int MainMenuSceneIndex = 0;
+
     const int SampleSceneIndex = 1;
 
     public static event Action OnGameOver;
@@ -23,6 +26,11 @@ public class GameDirector : SingletonBase<GameDirector>
     public void GameWon()
     {
         OnGameWon?.Invoke();
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(MainMenuSceneIndex);
     }
 
     public void StartNewGame()
