@@ -32,14 +32,19 @@ public class Bubble : MonoBehaviour
     private bool _isJammingToMusic = false;
     public bool IsJammingToMusic { get => _isJammingToMusic; set { _isJammingToMusic = value; } }
 
-    private Transform _target;
-    public Transform Target { get => _target; set { _target = value; } }
+    private Vector3 _target;
+    public Vector3 Target { get => _target; set { _target = value; } }
 
     private bool _isStunned;
     public bool IsStunned { get => _isStunned; set { _isStunned = value; } }
 
+    private Transform _playerTransform;
+    private float _wanderCount;
+    
     private Rigidbody2D _rigidbody;
     public Rigidbody2D Rigidbody { get => _rigidbody; set => _rigidbody = value; }
+
+    private Happiness _happiness;
 
     private void OnEnable() {
         BubbleDirector.Instance.OnBubbleSpawned();
@@ -57,19 +62,22 @@ public class Bubble : MonoBehaviour
 
     private void Awake() {
         Rigidbody = GetComponent<Rigidbody2D>();
+        _happiness = GetComponent<Happiness>();
 
         PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
         if (players.Length != 0) {
-            Target = players[0].transform;
+            _playerTransform = players[0].transform;
         }
     }
 
     private void Start() {
         SplitCount = BubbleStats.SplitTime;
+        _wanderCount = _bubbleStats.WanderSeconds;
     }
 
     private void Update() {
         if (!IsStunned) {
+            AdjustTargetPosition();
             GetComponent<Rigidbody2D>().linearDamping = 1;
             MoveTowardsTarget();
         } else {
@@ -78,17 +86,34 @@ public class Bubble : MonoBehaviour
 
         UpdateSize();
         UpdateHatPosition();
+        if (_happiness.BubbleHappiness == Happiness.HappinessStatus.Sad) {
+            return;
+        }
+
         SplitCount -= Time.deltaTime;
         if (SplitCount <= 0) {
             Split();
         }
     }
 
+
     private void UpdateSize()
     {
         float ScaleMultiplier = Mathf.Lerp(MaxScale, MinScale, SplitCount / BubbleStats.SplitTime);
         Debug.Log(ScaleMultiplier);
         this.gameObject.transform.localScale = new Vector2(ScaleMultiplier, ScaleMultiplier);
+    }
+    private void AdjustTargetPosition() {
+        if (_happiness.BubbleHappiness == Happiness.HappinessStatus.TooHappy) {
+            Target = _playerTransform.position;
+            return;
+        }
+
+        _wanderCount -= Time.deltaTime;
+        if (_wanderCount <= 0f) {
+            Target = transform.position + (Vector3)Random.insideUnitCircle * _bubbleStats.WanderDistance;
+            _wanderCount = _bubbleStats.WanderSeconds;
+        }
     }
 
     private void UpdateHatPosition() {
@@ -100,11 +125,7 @@ public class Bubble : MonoBehaviour
     }
 
     private void MoveTowardsTarget() {
-        if (Target == null) {
-            return;
-        }
-
-        Rigidbody.AddForce((Target.position - transform.position).normalized * BubbleStats.MoveForce * Time.deltaTime);
+        Rigidbody.AddForce((Target - transform.position).normalized * BubbleStats.MoveForce * Time.deltaTime);
 
         if (Rigidbody.linearVelocity.magnitude > BubbleStats.MaximumVelocity) {
             Rigidbody.linearVelocity = Rigidbody.linearVelocity.normalized * BubbleStats.MaximumVelocity;

@@ -15,6 +15,8 @@ public class AudioSystem : MonoBehaviour {
         }
 
         Instance = this;
+
+        DontDestroyOnLoad(gameObject);
         GenerateAudioSources();
     }
 
