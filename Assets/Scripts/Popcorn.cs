@@ -4,6 +4,6 @@ public class Popcorn : MonoBehaviour
 {
     void Start()
     {
-        GetComponent<AudioSource>().Play();
+        AudioSystem.Instance.PlaySound("Popcorn Bomb");
     }
 }

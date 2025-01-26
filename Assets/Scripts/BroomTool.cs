@@ -12,7 +12,6 @@ public class BroomTool : MonoBehaviour
 
     InputController input;
 
-
     private void Awake()
     {
         rb = broom.GetComponent<Rigidbody2D>();
@@ -74,6 +73,7 @@ public class BroomTool : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
             rb.angularVelocity = -360f;
             yield return new WaitForSeconds(0.25f);
+            AudioSystem.Instance.PlaySound("Broom Swing");
         }
     }
 }

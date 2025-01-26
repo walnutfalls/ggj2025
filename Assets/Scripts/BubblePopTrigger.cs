@@ -23,13 +23,14 @@ public class BubblePopTrigger : MonoBehaviour
         if (other.gameObject.layer == PLAYER_LAYER)
         {
             Destroy(transform.parent.gameObject);
+            AudioSystem.Instance.PlaySound("Discontent Chatter 1");
         }
     }
 
     private void ApplyEffect()
     {
         Debug.Log("Popcorn Eaten!");
-        GetComponent<AudioSource>().Play();
+        AudioSystem.Instance.PlaySound("Pop Scream 1");
         // ...
     }
 }
