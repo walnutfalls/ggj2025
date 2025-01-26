@@ -1,5 +1,6 @@
 .DS_Store
 *.blob
+*~lock~
 
 /[Ll]ibrary/
 /[Tt]emp/
