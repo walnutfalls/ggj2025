@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class BubbleDirector : SingletonBase<BubbleDirector>
 {
     public int BubblesAliveCount { get; private set; } = 0;
