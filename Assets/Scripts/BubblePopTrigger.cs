@@ -8,7 +8,7 @@ public class BubblePopTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (other.TryGetComponent(out Popcorn popcorn))
         {
             Destroy(other.gameObject);
@@ -29,7 +29,6 @@ public class BubblePopTrigger : MonoBehaviour
 
     private void ApplyEffect(Popcorn popcorn)
     {
-        Debug.Log("Popcorn Eaten!");
         AudioSystem.Instance.PlaySound("Pop Scream 1");
         transform.parent.GetComponent<Happiness>().AddHappiness(popcorn.HappinessIncrease);
     }

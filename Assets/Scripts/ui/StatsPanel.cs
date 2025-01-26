@@ -98,6 +98,7 @@ public class StatsPanel : MonoBehaviour
 
         this.PanelPortalActive = true;
         this.panelTargetOpacity = 1.0f;
+        AudioSystem.Instance.PlaySound("Rollover");
     }
 
     private void UpdateHatStatuses()

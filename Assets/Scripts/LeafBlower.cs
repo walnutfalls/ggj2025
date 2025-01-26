@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(SpriteRenderer))]
 public class LeafBlower : MonoBehaviour {
     [Tooltip("Scriptable that holds a list of all bubble objects.")]
     [SerializeField] private BubbleObjectPool _bubblePool;
@@ -35,6 +34,9 @@ public class LeafBlower : MonoBehaviour {
     }
 
     private void Update() {
+        var dir = _input.Look;
+        transform.rotation = Quaternion.FromToRotation(Vector2.up, dir);
+
         if (!_isBlowing) {
             return;
         }
