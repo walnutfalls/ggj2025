@@ -27,6 +27,26 @@ public class InputController : MonoBehaviour
         }
     }
 
+    public Vector2 Look
+    {
+        get
+        {
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
+            if (UsingGamepad)
+            {
+                return Actions.Player.Look.ReadValue<Vector2>();
+            }
+            else
+            {
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                return (mousePosition - transform.position).normalized;
+            }
+#else
+            return input.Actions.Player.Look.ReadValue<Vector2>();
+#endif
+        }
+    }
+
 
     private void OnEnable()
     {

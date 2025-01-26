@@ -37,7 +37,7 @@ public class BroomTool : MonoBehaviour
         broom.transform.position = transform.position;
 
         if (_waveCoroutine == null) {
-            var dir = input.Movement;
+            var dir = input.Look;
             var broomUp = broom.transform.up;
             var broomUpOrth = new Vector2(-broomUp.y, broomUp.x);            
             var targetRotation = Quaternion.FromToRotation(Vector2.up, dir);
