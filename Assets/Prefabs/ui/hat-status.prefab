@@ -293,3 +293,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 489683262987072292}
   iconImage: {fileID: 3385773319841157539}
+  lockedIconSprite: {fileID: 21300000, guid: 59fe36fd7f5384d9aaf9a57cd9008235, type: 3}
