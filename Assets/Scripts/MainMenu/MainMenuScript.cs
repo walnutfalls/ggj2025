@@ -17,7 +17,11 @@ public class MainMenuScript : MonoBehaviour
     public void QuitGame()
     {
         this.PlayClickSound();
+
+#if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
+#endif
+
         Application.Quit();
     }
 
