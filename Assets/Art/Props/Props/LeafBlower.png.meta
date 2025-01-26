@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LeafBlower_0: 3733032600508990325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

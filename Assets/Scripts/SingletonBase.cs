@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 /// <summary>
 /// Inherit from this base class to create a singleton.
 /// e.g. public class MyClassName : Singleton<MyClassName> {}
@@ -51,12 +50,10 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-
     private void OnApplicationQuit()
     {
         m_ShuttingDown = true;
     }
-
 
     private void OnDestroy()
     {
@@ -65,7 +62,7 @@ public class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 }
 
 public class MonoBehaviourSingletonPersistent<T> : MonoBehaviour
-where T : Component
+    where T : Component
 {
     public static T Instance { get; private set; }
 

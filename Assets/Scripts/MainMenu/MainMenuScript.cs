@@ -1,6 +1,5 @@
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class MainMenuScript : MonoBehaviour
     //Used by "Play" button
     public void PlayButton()
     {
-        SceneManager.LoadScene(1);
+        GameDirector.Instance.StartNewGame();
     }
 
     public void QuitGame()

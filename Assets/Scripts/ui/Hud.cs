@@ -4,6 +4,9 @@ using UnityEngine;
 public class Hud : MonoBehaviour
 {
     [SerializeField]
+    private HatLibrary hatLibrary;
+
+    [SerializeField]
     private TextWithIcon timeText;
 
     [SerializeField]
@@ -16,6 +19,7 @@ public class Hud : MonoBehaviour
 
     protected void Start()
     {
+        StatsTracker.Instance.RegisterHats(this.hatLibrary.HatsList);
         this.Reset();
     }
 

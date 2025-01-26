@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StatsPanel : MonoBehaviour
@@ -14,7 +15,7 @@ public class StatsPanel : MonoBehaviour
     private MouseDetector panelContainer;
 
     [SerializeField]
-    private StatsTracker statsTracker;
+    private TextMeshProUGUI gamesCountText;
 
     [SerializeField]
     private List<HatStatusRow> hatStatusRows;
@@ -22,7 +23,7 @@ public class StatsPanel : MonoBehaviour
     [SerializeField]
     private float transitionSpeed;
 
-    private readonly List<Tuple<StatsTracker.HatStatus, HatScriptable>> hatStatuses = new();
+    private readonly List<Tuple<HatStatus, HatScriptable>> hatStatuses = new();
 
     private bool isPanelOpen = false;
 
@@ -81,6 +82,8 @@ public class StatsPanel : MonoBehaviour
 
             this.PanelPortalOpacity = newOpacity;
         }
+
+        this.gamesCountText.text = StatsTracker.Instance.GamesStarted.ToString();
     }
 
     private void ClosePanel()
@@ -99,7 +102,7 @@ public class StatsPanel : MonoBehaviour
 
     private void UpdateHatStatuses()
     {
-        this.statsTracker.GetHatStatuses(this.hatStatuses);
+        StatsTracker.Instance.GetHatStatuses(this.hatStatuses);
 
         for (var i = 0; i < this.hatStatusRows.Count; i++)
         {
