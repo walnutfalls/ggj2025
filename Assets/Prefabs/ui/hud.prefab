@@ -3534,6 +3534,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: bubbles-popped
       objectReference: {fileID: 0}
+    - target: {fileID: 7301665205253374750, guid: 26d5e54c515024441a2d774c3c68fda9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 178.9995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301665205253374750, guid: 26d5e54c515024441a2d774c3c68fda9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 21.5146
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6290987734435018703, guid: 26d5e54c515024441a2d774c3c68fda9, type: 3}
     m_RemovedGameObjects: []
