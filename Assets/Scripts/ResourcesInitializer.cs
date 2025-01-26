@@ -9,5 +9,6 @@ public class ResourcesInitializer : MonoBehaviour
     protected void Start()
     {
         this.hats.ForEach((h) => StatsTracker.Instance.RegisterHat(h));
+        GameDirector.Instance.StartNewGame();
     }
 }
