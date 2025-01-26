@@ -9,7 +9,7 @@ public class Kernel : MonoBehaviour
 
     private float elapsed = 0f;
 
-    
+
     public void Run(float timeRemaining)
     {
         StartCoroutine(WaitPop(timeRemaining));
@@ -23,16 +23,16 @@ public class Kernel : MonoBehaviour
         {
             var t = elapsed / timeRemaining;
             transform.localScale = Vector3.Lerp(origScale * 0.25f, origScale, t);
-            elapsed += Time.deltaTime;            
+            elapsed += Time.deltaTime;
             yield return null;
         }
 
         transform.parent = null;
-        
+
         var go = Instantiate(popcorn.RandomElement(), transform.position, Quaternion.identity);
         go.GetComponent<Rigidbody2D>().linearVelocity = GetComponent<Rigidbody2D>().linearVelocity;
         Destroy(gameObject);
     }
 
-    
+
 }

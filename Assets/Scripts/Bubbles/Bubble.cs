@@ -7,7 +7,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private float MaxScale = 2;
     [SerializeField] private float MinScale = 1;
     private float StartingSplitCount;
-    
+
     [Tooltip("Bubble object pool scriptable this object registers/unregisters for on spawn/despawn.")]
     [SerializeField] private BubbleObjectPool _bubbleObjectPool;
 
@@ -43,7 +43,7 @@ public class Bubble : MonoBehaviour
 
     private Transform _playerTransform;
     private float _wanderCount;
-    
+
     private Rigidbody2D _rigidbody;
     public Rigidbody2D Rigidbody { get => _rigidbody; set => _rigidbody = value; }
 

@@ -8,7 +8,7 @@ public class Invenory : MonoBehaviour
     public List<GameObject> ToolComponents;
     private int currentToolIndex = 0;
 
-    public int CurrentToolIndex 
+    public int CurrentToolIndex
     {
         get { return currentToolIndex; }
         set {
