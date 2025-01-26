@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a0bef0377af8139418836b6062cd6445
+guid: b5320dfcb76194036a4adcaeaacc80ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6242445402925480668
-    second: BubbleRanchTempMainMenuArt_0
+      213: -6078428397367578587
+    second: ui-left-panel-bg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 59, y: 61, z: 63, w: 59}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BubbleRanchTempMainMenuArt_0
+      name: ui-left-panel-bg_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 872
-        height: 881
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 16, z: 16, w: 16}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4254bdcdaf06e59a0800000000000000
-      internalID: -6242445402925480668
+      spriteID: 5203246d39515aba0800000000000000
+      internalID: -6078428397367578587
       vertices: []
       indices: 
       edges: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: b954f28500b2947178581a222f3cd458
+    internalID: -2080167114
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BubbleRanchTempMainMenuArt_0: -6242445402925480668
+      ui-left-panel-bg_0: -6078428397367578587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

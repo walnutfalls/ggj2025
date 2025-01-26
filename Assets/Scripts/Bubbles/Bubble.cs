@@ -38,10 +38,12 @@ public class Bubble : MonoBehaviour {
     public Rigidbody2D Rigidbody { get => _rigidbody; set => _rigidbody = value; }
 
     private void OnEnable() {
+        BubbleDirector.Instance.OnBubbleSpawned();
         _bubbleObjectPool.AllBubbles.Add(this);
     }
 
     private void OnDisable() {
+        BubbleDirector.Instance.OnBubblePopped();
         _bubbleObjectPool.AllBubbles.Remove(this);
     }
 
