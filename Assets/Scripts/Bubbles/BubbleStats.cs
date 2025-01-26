@@ -68,9 +68,15 @@ public class BubbleStats : ScriptableObject {
     public float WateredSize { get => _wateredSize; }
 
     [Header("Sprites")]
-    [Tooltip("Array of sprites that will be displayed depending on the happiness status of this bubble. In order of sad, happy, too happy.")]
-    [SerializeField] private Sprite[] _faceSprites;
-    public Sprite[] FaceSprites { get => _faceSprites; set { _faceSprites = value; } }
+    [Tooltip("Sprite that will be displayed when the bubble is sad.")]
+    [SerializeField] private Sprite _sadFaceSprite;
+    public Sprite SadFaceSprite { get => _sadFaceSprite; set { _sadFaceSprite = value; } }
+    [Tooltip("Sprite that will be displayed when the bubble is happy.")]
+    [SerializeField] private Sprite _happyFaceSprite;
+    public Sprite HappyFaceSprite { get => _happyFaceSprite; set { _happyFaceSprite = value; } }
+    [Tooltip("Sprite that will be displayed when the bubble is too happy.")]
+    [SerializeField] private Sprite _tooHappyFaceSprite;
+    public Sprite TooHappyFaceSprite { get => _tooHappyFaceSprite; set { _tooHappyFaceSprite = value; } }
 
 
     private void OnValidate() {

@@ -9,6 +9,9 @@ public class Happiness : MonoBehaviour {
     private float _currentHappiness;
     public float CurrentHappiness { get => _currentHappiness; set { _currentHappiness = value; } }
 
+    [Tooltip("Reference to the sprite renderer that displays the bubble's faces.")]
+    [SerializeField] private SpriteRenderer _faceRenderer;
+
     private Bubble _bubble;
 
     public float CurrentHappinessPercentage {
@@ -30,6 +33,9 @@ public class Happiness : MonoBehaviour {
 
         BubbleHappiness = CurrentHappinessPercentage < _bubble.BubbleStats.HappyPercentage ? HappinessStatus.Sad : 
             (CurrentHappinessPercentage < _bubble.BubbleStats.TooHappyPercentage ? HappinessStatus.Happy : HappinessStatus.TooHappy);
+
+        _faceRenderer.sprite = BubbleHappiness == HappinessStatus.Sad ? _bubble.BubbleStats.SadFaceSprite :
+            (BubbleHappiness == HappinessStatus.Happy ? _bubble.BubbleStats.HappyFaceSprite : _bubble.BubbleStats.TooHappyFaceSprite);
     }
 
     public void AddHappiness(float happinessAmount) {
