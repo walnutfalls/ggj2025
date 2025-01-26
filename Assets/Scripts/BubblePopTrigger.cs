@@ -9,10 +9,10 @@ public class BubblePopTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         
-        if (other.GetComponent<Popcorn>() != null)
+        if (other.TryGetComponent(out Popcorn popcorn))
         {
             Destroy(other.gameObject);
-            ApplyEffect();
+            ApplyEffect(popcorn);
         }
 
         if (other.gameObject.layer == BROOM_LAYER)
@@ -27,10 +27,10 @@ public class BubblePopTrigger : MonoBehaviour
         }
     }
 
-    private void ApplyEffect()
+    private void ApplyEffect(Popcorn popcorn)
     {
         Debug.Log("Popcorn Eaten!");
         AudioSystem.Instance.PlaySound("Pop Scream 1");
-        // ...
+        transform.parent.GetComponent<Happiness>().AddHappiness(popcorn.HappinessIncrease);
     }
 }
