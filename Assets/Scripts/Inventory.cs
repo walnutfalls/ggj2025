@@ -36,6 +36,7 @@ public class Invenory : MonoBehaviour
     {
         input.Actions.Player.Next.performed += ToggleInventory;
         input.Actions.Player.Previous.performed += ToggleInventoryPrev;
+
         CurrentToolIndex = 0;
     }
 
