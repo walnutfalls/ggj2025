@@ -27,21 +27,14 @@ public class PopcornThrowTool : MonoBehaviour
     {
         input = FindFirstObjectByType<InputController>();
 
-        if (!input.UsingGamepad)
-        {
-            input.Actions.Player.Attack.performed += StartCook;
-            input.Actions.Player.Attack.canceled += StartThrow;
-        }
-
+        input.Actions.Player.Attack.performed += StartCook;
+        input.Actions.Player.Attack.canceled += StartThrow;
     }
 
     void OnDisable()
     {
-        if (!input.UsingGamepad)
-        {
-            input.Actions.Player.Attack.performed -= StartCook;
-            input.Actions.Player.Attack.canceled -= StartThrow;
-        }
+        input.Actions.Player.Attack.performed -= StartCook;
+        input.Actions.Player.Attack.canceled -= StartThrow;        
     }
 
 
