@@ -4,6 +4,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Texture2D cursor;
 
+    [SerializeField] private Sprite fwd;
+    [SerializeField] private Sprite back;
+
+
     private Rigidbody2D body;
 
     public float runSpeed = 10f;
@@ -25,5 +29,15 @@ public class PlayerController : MonoBehaviour
 
         Vector2 movement = new Vector2(horizontal, vertical).normalized * runSpeed;
         body.linearVelocity = movement;
+
+        var sr = GetComponent<SpriteRenderer>();
+        if (vertical > 0)
+        {
+            sr.sprite = back;
+        }
+        else if (vertical < 0)
+        {
+            sr.sprite = fwd;
+        }
     }
 }

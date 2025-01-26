@@ -59,6 +59,7 @@ MonoBehaviour:
   _bubbleObjectPool: {fileID: 11400000, guid: 3e9e3c4238e9f8c4988529f168a1b437, type: 2}
   _bubbleStats: {fileID: 11400000, guid: cc693481d0fab4648b72f1a919bcdb87, type: 2}
   _hatPrefab: {fileID: 5086132549407731589, guid: 5737cdb5b3fdd1147a9db89d9f79f448, type: 3}
+  _hatLibrary: {fileID: 11400000, guid: e0264ed3e2fbe784595006b0c6f265f5, type: 2}
   _bubblePrefab: {fileID: 516945269212042551}
   _wornHat: {fileID: 0}
   _hatPivot: {fileID: 2890490542497642026}
@@ -483,7 +484,7 @@ Transform:
   m_GameObject: {fileID: 8140263240711165137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

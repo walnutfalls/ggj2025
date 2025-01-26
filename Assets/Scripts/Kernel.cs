@@ -1,9 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
+using Assets.Scripts.Utils;
 using UnityEngine;
 
 public class Kernel : MonoBehaviour
 {
-    public GameObject popcorn;
+    public List<GameObject> popcorn;
 
     private float elapsed = 0f;
 
@@ -27,7 +29,7 @@ public class Kernel : MonoBehaviour
 
         transform.parent = null;
         
-        var go = Instantiate(popcorn, transform.position, Quaternion.identity);
+        var go = Instantiate(popcorn.RandomElement(), transform.position, Quaternion.identity);
         go.GetComponent<Rigidbody2D>().linearVelocity = GetComponent<Rigidbody2D>().linearVelocity;
         Destroy(gameObject);
     }
